@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "declaration":true,
+    "allowSyntheticDefaultImports": true, 
+    "esModuleInterop": true,
+    "paths":{
+      "@random/*": ["random/*"]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "*.ts"
+  ],
+  "exclude": [
+    "jest.config.ts",
+    "./src/test",
+    "*.spec.ts"
+  ]
+}
