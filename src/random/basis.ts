@@ -9,8 +9,6 @@ export function id(): string {
 	return Math.random().toString().slice(2)
 }
 
-
-
 /**
  * @param {string} value uuid 的格式 default:'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx' 
  * @returns {string} uuid

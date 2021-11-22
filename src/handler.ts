@@ -72,7 +72,8 @@ function generate(template: any): any {
 	switch (type) {
 		case 'object': return generateObject(template);
 		case 'string': return generateString(template);
-		case 'array': return template.map((item: tTemplate): tTemplate => generate(item) );
+		case 'array': return template.map((item: tTemplate): tTemplate => generate(item));
+		case 'function': return template();
 		default: return template;
 	}
 }

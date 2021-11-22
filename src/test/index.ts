@@ -14,6 +14,12 @@ console.log(
 	// _mock.mock({ 'nameX|2-4': '@name' }), '\n',
 	// _mock.mock({ 'nameX|0-2': '@name' }), '\n',
 	// _mock.mock({ 'nameX|2-4': '@name' }), '\n',
-	_mock.mock({ 'list|10-20': { 'a': '@name', uid: '@uuid', id: '@id' } }), '\n',
+	_mock.mock({
+		'list|10-20': {
+			'a': '@name', uid: '@uuid', id: '@id', function() {
+				return '123'
+			}
+		}
+	}), '\n',
 	// _mock.mock('@name'),
 );
