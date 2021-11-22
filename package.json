@@ -12,7 +12,7 @@
     "restart": "rimraf dist && npm run build && npm start",
     "start": "node ./dist/index.js",
     "prod": "npm run build && npm run start",
-    "pub": "./push.bat & rimraf ./dist & tsc & npm publish"
+    "pub": "push.bat & rimraf ./dist & tsc & npm publish"
   },
   "keywords": [
     "typescript",
