@@ -18,6 +18,7 @@ console.log(
 		// },
 		'li&c,d,e': "@name",
 		'li2&&c,d,e': "@name",
+		'name&key1,key2,key3': "@name",
 		'list&a,b,c': {
 			'a': '@name', uid: '@uuid', id: '@id', function() {
 				return '123'
