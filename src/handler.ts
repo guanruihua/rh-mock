@@ -62,6 +62,7 @@ function generateObject(template: { [key: string]: any }): tTemplate {
 				result[name] = val || '';
 			}
 		}
+
 		else if (RE_Object_KEY.test(key)) {
 			let tmpVal: any = template[key];
 			let [name, ...tkeys] = key.split(/&&|&|,/);
@@ -104,6 +105,7 @@ function generateObject(template: { [key: string]: any }): tTemplate {
 			result[key] = generate(template[key]);
 		}
 	}
+
 	return result;
 }
 

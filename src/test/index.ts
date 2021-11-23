@@ -11,11 +11,11 @@ console.log(
 	// _mock.mock({ 'nameX|0-2': '@name' }), '\n',
 	// _mock.mock({ 'nameX|2-4': '@name' }), '\n',
 	_mock.mock({
-		// 'list|10-20': {
-		// 	'a': '@name', uid: '@uuid', id: '@id', function() {
-		// 		return '123'
-		// 	}
-		// },
+		'list|2-4': {
+			'a': '@name', uid: '@uuid', id: '@id', function() {
+				return '123'
+			}
+		},
 		// 'li1&c,d,e': "@name",
 		// 'li12&(11)c,d,e': "@name",
 		// 'li12123123&&(1)c,d,e': "@name",
