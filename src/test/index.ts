@@ -16,14 +16,18 @@ console.log(
 		// 		return '123'
 		// 	}
 		// },
-		'li&c,d,e': "@name",
-		'li2&&c,d,e': "@name",
-		'name&key1,key2,key3': "@name",
-		'list&a,b,c': {
-			'a': '@name', uid: '@uuid', id: '@id', function() {
-				return '123'
-			}
-		}
+		// 'li1&c,d,e': "@name",
+		// 'li12&(11)c,d,e': "@name",
+		// 'li12123123&&(1)c,d,e': "@name",
+		// 'li11&&c,d,e': "@name",
+		// 'li2&&(11)c,d,e': "@name",
+		// 'li22&&(11-20)c,d,e': "@name",
+		'name&&(2)key1,key2,key3': "@name",
+		// 'list&a,b,c': {
+		// 	'a': '@name', uid: '@uuid', id: '@id', function() {
+		// 		return '123'
+		// 	}
+		// }
 	}), '\n',
 	// _mock.mock('@name'),
 );

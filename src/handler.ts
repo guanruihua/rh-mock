@@ -62,22 +62,42 @@ function generateObject(template: { [key: string]: any }): tTemplate {
 				result[name] = val || '';
 			}
 		}
-		else if (RE_Object_str_KEY.test(key)) {
-			let [name, ...tkeys] = key.split(/&&|,/);
-			let tmpVal: any = template[key];
-			result[name] = {};
-			tkeys.forEach((item: string): void => {
-				result[name][item] = generate(tmpVal)
-			})
-			result[name] = JSON.stringify(result[name])
-		}
 		else if (RE_Object_KEY.test(key)) {
-			let [name, ...tkeys] = key.split(/&|,/);
 			let tmpVal: any = template[key];
-			result[name] = {};
-			tkeys.forEach((item: string): void => {
-				result[name][item] = generate(tmpVal)
-			})
+			let [name, ...tkeys] = key.split(/&&|&|,/);
+			let tmpResult: any[] = [];
+			let len: number = 0;
+
+			if (/\(\d+\)/.test(tkeys[0])) {
+				let [, num, tkey]: any = tkeys[0].split(/\(|\)/);
+				tkeys[0] = tkey;
+				len = Number(num)
+			}
+
+			if (/(\d+\-\d+)/.test(tkeys[0])) {
+				let [min, max, , tkey]: any = tkeys[0].split(/\-|\(|\)/)
+				tkeys[0] = tkey;
+				len = RH.randomNumByRange(Number(min), Number(max))
+			}
+
+			if (len > 0) {
+				result[name] = [];
+				while (len--) {
+					let result_tmp: any = {};
+					tkeys.forEach((item: string): void => {
+						result_tmp[item] = generate(tmpVal)
+					})
+					result[name].push(result_tmp)
+				}
+			} else {
+				result[name] = {};
+				tkeys.forEach((item: string): void => {
+					result[name][item] = generate(tmpVal)
+				})
+			}
+			if (RE_Object_str_KEY.test(key))
+				result[name] = JSON.stringify(result[name])
+
 		}
 
 		else {
