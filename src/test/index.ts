@@ -1,9 +1,5 @@
 import _mock from '../index'
 
-// console.log('test');
-
-
-
 console.log(
 	// _mock.mock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }), '\n',
 	// _mock.mock({ 'nameX|1': ['a', 'b', 'c'] }), '\n',// 多选一
@@ -15,7 +11,14 @@ console.log(
 	// _mock.mock({ 'nameX|0-2': '@name' }), '\n',
 	// _mock.mock({ 'nameX|2-4': '@name' }), '\n',
 	_mock.mock({
-		'list|10-20': {
+		// 'list|10-20': {
+		// 	'a': '@name', uid: '@uuid', id: '@id', function() {
+		// 		return '123'
+		// 	}
+		// },
+		'li&c,d,e': "@name",
+		'li2&&c,d,e': "@name",
+		'list&a,b,c': {
 			'a': '@name', uid: '@uuid', id: '@id', function() {
 				return '123'
 			}

@@ -3,7 +3,9 @@ import Constant from "./constant"
 import Util from "./util"
 import Random from "./random"
 import { tTemplate } from './type'
-const { GUID, RE_KEY, RE_PLACEHOLDER, RE_RANGE } = Constant
+const { GUID, RE_KEY,
+	RE_PLACEHOLDER, RE_RANGE, RE_Object_KEY,
+	RE_Object_str_KEY } = Constant
 
 function generateString(template: string): tTemplate {
 	if (template.indexOf('@') > -1) {
@@ -59,7 +61,26 @@ function generateObject(template: { [key: string]: any }): tTemplate {
 				);
 				result[name] = val || '';
 			}
-		} else {
+		}
+		else if (RE_Object_str_KEY.test(key)) {
+			let [name, ...tkeys] = key.split(/&&|,/);
+			let tmpVal: any = template[key];
+			result[name] = {};
+			tkeys.forEach((item: string): void => {
+				result[name][item] = generate(tmpVal)
+			})
+			result[name] = JSON.stringify(result[name])
+		}
+		else if (RE_Object_KEY.test(key)) {
+			let [name, ...tkeys] = key.split(/&|,/);
+			let tmpVal: any = template[key];
+			result[name] = {};
+			tkeys.forEach((item: string): void => {
+				result[name][item] = generate(tmpVal)
+			})
+		}
+
+		else {
 			result[key] = generate(template[key]);
 		}
 	}
