@@ -10,20 +10,14 @@
     "alwaysStrict": true,
     "moduleResolution": "node",
     "baseUrl": "./",
-    "declaration":true,
-    "allowSyntheticDefaultImports": true, 
+    // "declaration":true,
+    "declaration": false,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "paths":{
+    "paths": {
       "@random/*": ["random/*"]
     }
   },
-  "include": [
-    "./src/**/*",
-    "*.ts"
-  ],
-  "exclude": [
-    "jest.config.ts",
-    "./src/test",
-    "*.spec.ts"
-  ]
+  "include": ["./src/**/*", "*.ts"],
+  "exclude": ["jest.config.ts", "./src/test", "*.spec.ts"]
 }

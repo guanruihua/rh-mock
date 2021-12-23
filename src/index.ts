@@ -5,9 +5,7 @@ import Util from './util'
 
 const _mock = Object.assign(
 	{
-		mock: function (template: any,
-			// rtype, template
-		): any {
+		mock: function (template: any): any {
 
 			// _mock.mock(template)
 			if (arguments.length === 1) return Handler.generate(template);
@@ -50,7 +48,6 @@ const _mock = Object.assign(
 		* _mock.mock( rurl, function(options) )
 		* _mock.mock( rurl, rtype, template )
 		* _mock.mock( rurl, rtype, function(options) )
-	 
 		数据模板 => 模拟数据
 */
 

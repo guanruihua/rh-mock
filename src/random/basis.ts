@@ -1,3 +1,19 @@
+import { _array, _number } from 'rh-js-methods'
+import Constant from '../constant';
+
+const { CHARS } = Constant
+
+export function char(): string {
+	return _array.arraySelectOne(CHARS.split(''))
+}
+
+export function string(): string {
+	let result: string = char();
+	let len: number = _number.random(1, 20, false);
+	while (len--) result += char();
+	return result;
+}
+
 
 // 返回一个随机布尔值
 export function boolean(): boolean {

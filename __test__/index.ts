@@ -1,6 +1,11 @@
-import _mock from '../index'
+// import _mock from '../dist/index'
+import _mock from '../src/index'
+import { _methods, RH } from 'rh-js-methods'
 
-console.log(
+// console.log(RH)
+
+
+false && RH.logGroup('test',
 	// _mock.mock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }), '\n',
 	// _mock.mock({ 'nameX|1': ['a', 'b', 'c'] }), '\n',// 多选一
 	// _mock.mock({ 'nameX': '@name', 'nameX2': '@name' }), '\n',
@@ -12,7 +17,10 @@ console.log(
 	// _mock.mock({ 'nameX|2-4': '@name' }), '\n',
 	_mock.mock({
 		'list|2-4': {
-			'a': '@name', uid: '@uuid', id: '@id', function() {
+			'a': '@name',
+			uid: '@uuid',
+			id: '@id',
+			function() {
 				return '123'
 			}
 		},
@@ -31,3 +39,10 @@ console.log(
 	}), '\n',
 	// _mock.mock('@name'),
 );
+
+RH.logGroup('test',
+	_mock.mock("@char"),
+	_mock.mock("@string"),
+	_mock.mock("@title"),
+	_mock.mock("@title(1,30)"),
+)

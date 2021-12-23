@@ -9,7 +9,8 @@ const { GUID, RE_KEY,
 
 function generateString(template: string): tTemplate {
 	if (template.indexOf('@') > -1) {
-		return Random[template.replace('@', '')]();
+		const [, controlIndex, ...params] = template.split(/@|\(|\)|,/) || []
+		return Random[controlIndex](...params);
 	}
 	return template;
 }
@@ -55,7 +56,7 @@ function generateObject(template: { [key: string]: any }): tTemplate {
 				let tmp_list: any = [];
 				let tmp_max: number = max;
 				while (tmp_max--) tmp_list.push(generate(template[key]));
-				let val: tTemplate = _array.arraySelectItemsByRange(
+				let val: tTemplate = _array.arraySelectItems(
 					tmp_list,
 					min, max
 				);
