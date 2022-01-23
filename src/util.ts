@@ -1,5 +1,3 @@
-import { tTemplate, tContext } from './type'
-
 const Util: { [key: string]: any } = {};
 
 // 用来判断是obj 类型 ( string, function, object )

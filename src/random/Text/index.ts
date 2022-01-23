@@ -7,7 +7,7 @@ export function cword() {
 	return _array.arraySelectOne(CHINESE.split(''))
 }
 
-export function title(min: string = '0', max: string = '1'): string {
+export function title(min: string = '3', max: string = '5'): string {
 	let result: string = '';
 	let len: number = _number.random(Number(min), Number(max), false);
 	while (len--) result += cword();
