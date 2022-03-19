@@ -9,15 +9,17 @@
     "strictNullChecks": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "baseUrl": "./",
-    // "declaration":true,
     "declaration": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    // "strict": true,
+    "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "@random/*": ["random/*"]
     }
   },
   "include": ["./src/**/*", "*.ts"],
-  "exclude": ["jest.config.ts", "./src/test", "*.spec.ts"]
+  "exclude": ["./src/test", "*.spec.ts"]
 }

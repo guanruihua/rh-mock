@@ -5,14 +5,18 @@
 > 拓展运算符 `&`, `&&`
 > 本仓库主要是学习使用
 
+## 更新日志
+
+> - 升级内部使用工具包 "rh-js-methods": "^0.0.13" => "1.0.3"
+
 ## 使用
 
 ```shell
-npm install rh-js-methods
+npm install rh-mock
 ```
 
 ```js
-import RMock from 'rh-js-methods'
+import RMock from 'rh-mock'
 
 RMock.mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
@@ -64,6 +68,7 @@ RMock.mock({"name|3":"@name"})
 ##### 文本
 
 > 待开发 自然段
+
 |     操作符     |     描述      |                            结果                            |
 | :------------: | :-----------: | :--------------------------------------------------------: |
 |    `@title`    |     标题      |                        `土好保观`                        |

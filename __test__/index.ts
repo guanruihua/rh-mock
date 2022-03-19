@@ -1,11 +1,11 @@
 // import RMock from '../dist/index'
 import RMock from '../src/index'
-import { _methods, RH } from 'rh-js-methods'
+import { rUtil } from 'rh-js-methods'
 
 // console.log(RH)
 
 false &&
-  RH.logGroup(
+  rUtil.logGroup(
     'test',
     // RMock.mock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }), '\n',
     // RMock.mock({ 'nameX|1': ['a', 'b', 'c'] }), '\n',// 多选一
@@ -43,7 +43,7 @@ false &&
   )
 
 false &&
-  RH.logGroup(
+  rUtil.logGroup(
     'test',
     // RMock.mock({"name&&a":"@name"}),
     RMock.mock({ 'name|3': '@name' }),
@@ -58,7 +58,7 @@ false &&
     RMock.mock('@title'),
     RMock.mock('@title(1,30)')
   )
-RH.logGroup(
+rUtil.logGroup(
   'test',
   RMock.mock('@name'),
   RMock.mock('@cname'),

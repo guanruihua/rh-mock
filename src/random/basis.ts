@@ -1,15 +1,15 @@
-import { _array, _number } from 'rh-js-methods'
+import { rArray, rNumber } from 'rh-js-methods'
 import Constant from '../constant'
 
 const { CHARS } = Constant
 
 export function char(): string {
-  return _array.arraySelectOne(CHARS.split(''))
+  return rArray.arraySelectOne(CHARS.split(''))
 }
 
 export function string(): string {
   let result: string = char()
-  let len: number = _number.random(1, 20, false)
+  let len: number = rNumber.random(1, 20, false)
   while (len--) result += char()
   return result
 }

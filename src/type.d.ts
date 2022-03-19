@@ -1,0 +1,1 @@
+declare module 'rh-js-methods'
