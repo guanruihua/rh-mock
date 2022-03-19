@@ -1,6 +1,8 @@
-
-export type tChildTemplate = {
-	[key: string]: tChildTemplate;
+// 当前包支持的基础数据类型
+export type BaseSupportType = string | number | boolean | undefined | null | never | unknown
+export type BaseSupportArray = (BaseSupportType | BaseSupportObject)[]
+export type BaseSupportObject = {
+	[key: string]: BaseSupportType | BaseSupportArray | BaseSupportObject
 }
 
 export type tRule = {
@@ -11,25 +13,24 @@ export type tRule = {
 	range?: any[];
 }
 
-export type tTemplate =
-	string | undefined
-	| tChildTemplate;
+export type Template = BaseSupportType | BaseSupportArray | BaseSupportObject
+
+// export type TemplateArray = BaseSupportType[]
 
 export type tContext = {
 	type: string;
-	template: tTemplate;
+	template: Template;
 	name: string;
 	rule?: tRule;
 	context?: tContext;
 }
 
 export interface iHandler {
-	generate: (template: tTemplate) => tTemplate;
-	generateChooseOne: (template: tTemplate) => tTemplate;
-	generateString: (template: string) => tTemplate;
-	generateObject: (template: { [key: string]: any }) => tTemplate;
+	generate: (template: Template) => Template;
+	generateChooseOne: (template: Template) => Template;
+	generateString: (template: string) => Template;
+	generateObject: (template: { [key: string]: any }) => Template;
 }
-
 
 export type nullToVoidFn = () => void;
 export type nullToStringFn = () => string;

@@ -10,7 +10,7 @@ export function char(): string {
 export function string(): string {
   let result: string = char()
   let len: number = rNumber.random(1, 20, false)
-  while (len--) result += char()
+  while (len--) {result += char()}
   return result
 }
 
@@ -31,10 +31,10 @@ export function id(): string {
  */
 
 export function uuid(value: string): string {
-  let val: string = value || 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'
+  const val: string = value || 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'
   let d: number = new Date().getTime() // 随机种子
   return val.replace(/[xy]/g, function (c: string): string {
-    let r: number = (d + Math.random() * 16) % 16 | 0
+    const r: number = (d + Math.random() * 16) % 16 | 0
     d = Math.floor(d / 16)
     return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16)
   })

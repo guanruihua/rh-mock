@@ -1,45 +1,27 @@
-import { stringToString } from './type'
+// import { stringToString } from './type'
+import { Template } from 'type';
 import Handler from './handler'
 import Random from './random'
 import Util from './util'
 
-const _mock = Object.assign(
-	{
-		mock: function (template: any): any {
+const _mock = {
+	mock: function (template: Template): Template {
+		return Handler.generate(template);
+	},
+	Handler,
+	Random,
+	Util,
+	// XHR,
+	// RE,
+	// toJSONSchema,
+	// valid, //valid(template, data) 验证真实数据 是否与数据模板匹配
+	// heredoc: Util.heredoc,
+	// setup: function (settings) {
+	// 	return XHR.setup(settings)
+	// },
+	_mocked: {}
+}
 
-			// _mock.mock(template)
-			if (arguments.length === 1) return Handler.generate(template);
-
-			// _mock.mock(rurl, template)
-			// if (arguments.length === 2) {
-			// 	template = rtype;
-			// 	rtype = undefined;
-			// }
-
-			// 拦截 XHR ( 后续再制作 )
-			// if (XHR) window.XMLHttpRequest = XHR
-			// _mock._mocked[rurl + (rtype || '')] = {
-			// 	rurl: rurl,
-			// 	rtype: rtype,
-			// 	template: template
-			// }
-
-			return _mock;
-		},
-		Handler,
-		Random,
-		Util,
-		// XHR,
-		// RE,
-		// toJSONSchema,
-		// valid, //valid(template, data) 验证真实数据 是否与数据模板匹配
-		// heredoc: Util.heredoc,
-		// setup: function (settings) {
-		// 	return XHR.setup(settings)
-		// },
-		_mocked: {}
-	}
-)
 
 /*
 		* _mock.mock( template )

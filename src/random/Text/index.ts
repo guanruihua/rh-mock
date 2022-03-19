@@ -7,9 +7,11 @@ export function cword() {
 	return rArray.arraySelectOne(CHINESE.split(''))
 }
 
-export function title(min: string = '3', max: string = '5'): string {
-	let result: string = '';
+export function title(min = '3', max = '5'): string {
+	let result = '';
 	let len: number = rNumber.random(Number(min), Number(max), false);
-	while (len--) result += cword();
+	while (len--) {
+		result += cword();
+	}
 	return result;
 }

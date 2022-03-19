@@ -4,7 +4,7 @@ import { rUtil } from 'rh-js-methods'
 
 // console.log(RH)
 
-false &&
+0 &&
   rUtil.logGroup(
     'test',
     // RMock.mock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }), '\n',
@@ -41,25 +41,23 @@ false &&
     '\n'
     // RMock.mock('@name'),
   )
-
-false &&
+1 &&
   rUtil.logGroup(
     'test',
     // RMock.mock({"name&&a":"@name"}),
-    RMock.mock({ 'name|3': '@name' }),
-    RMock.mock({ 'name|3-5': '@name' }),
-
-    RMock.mock({ 'num|1-123': 1 }),
+    // RMock.mock({ 'name|3': '@name' }),
+    RMock.mock({ 'name|3-5': '@name' }), // 有问题
+    RMock.mock({ 'num|1-9': 1 }),
     RMock.mock({ 'num|12': 1 }),
-    RMock.mock('@char'),
+    // RMock.mock('@char'),
     RMock.mock('@name'),
-    RMock.mock('@cname'),
-    RMock.mock('@string'),
-    RMock.mock('@title'),
-    RMock.mock('@title(1,30)')
+    // RMock.mock('@cname'),
+    // RMock.mock('@string'),
+    // RMock.mock('@title'),
+    // RMock.mock('@title(1,30)')
   )
-rUtil.logGroup(
-  'test',
+0 && rUtil.logGroup(
+  'test-item',
   RMock.mock('@name'),
   RMock.mock('@cname'),
   RMock.mock('@first'),
