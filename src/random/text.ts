@@ -1,5 +1,5 @@
 import { rNumber, rArray } from 'rh-js-methods'
-import Constant from '../../constant';
+import Constant from '../constant';
 
 const { CHINESE } = Constant;
 

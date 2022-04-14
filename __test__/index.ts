@@ -4,6 +4,16 @@ import { rUtil } from 'rh-js-methods'
 
 // console.log(RH)
 
+1 && rUtil.logGroup(
+  'address',
+  RMock.mock('@ip'),
+  RMock.mock('@ip()'),
+  RMock.mock('@domain'),
+  RMock.mock('@domain()'),
+  RMock.mock('@email()'),
+
+)
+
 0 &&
   rUtil.logGroup(
     'test',
@@ -16,7 +26,7 @@ import { rUtil } from 'rh-js-methods'
     // RMock.mock({ 'nameX|2-4': '@name' }), '\n',
     // RMock.mock({ 'nameX|0-2': '@name' }), '\n',
     // RMock.mock({ 'nameX|2-4': '@name' }), '\n',
-    RMock.mock({
+    0 && RMock.mock({
       'list|2-4': {
         a: '@name',
         uid: '@uuid',
@@ -41,7 +51,7 @@ import { rUtil } from 'rh-js-methods'
     '\n'
     // RMock.mock('@name'),
   )
-1 &&
+0 &&
   rUtil.logGroup(
     'test',
     // RMock.mock({"name&&a":"@name"}),
