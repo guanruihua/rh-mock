@@ -1,5 +1,8 @@
 import { rArray, rNumber } from 'rh-js-methods'
 import Constant from '../constant'
+import { DICT_FIXED, REGION } from '../dictionary'
+
+const randomNum = (max = 99) => rNumber.random(1, max, false)
 
 function letters(start: number, end: number): string {
 	const codeFn = () => String.fromCharCode(rNumber.random(97, 122, false))
@@ -9,6 +12,34 @@ function letters(start: number, end: number): string {
 		result += codeFn()
 	}
 	return result
+}
+
+// 1: 本身; 2: 当前地址以及父级; 3: 当前地址以及子级; RRPPCCccaa: 地址格式
+export function region(flag: string = '1'): string {
+	if (flag === '1' || flag === '2') return rArray.arraySelectOne(REGION) || ''
+	if (flag === '3') {
+		const selectItem = rArray.arraySelectOne(DICT_FIXED) || {}
+		console.log(selectItem.name)
+		return selectItem.name || ''
+	}
+	return rArray.arraySelectOne(REGION) || ''
+}
+
+export function province(flag: string = '1'): string {
+	return rArray.arraySelectOne(DICT_FIXED)?.name || ''
+}
+
+export function city(flag: string = '1'): string {
+	return rArray.arraySelectOne(DICT_FIXED)?.name || ''
+}
+
+export function county(flag: string = '1'): string {
+	return rArray.arraySelectOne(DICT_FIXED)?.name || ''
+}
+
+// XX街道XX路XX号XX栋XX单元XX号
+export function address(flag: string = '1'): string {
+	return `${randomNum(512).toString(16)}街道${randomNum(512).toString(16)}路${randomNum()}号${randomNum()}栋${randomNum()}单元${randomNum()}号`
 }
 
 export function ip(): string {

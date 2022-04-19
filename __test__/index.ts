@@ -7,6 +7,16 @@ import { rUtil } from 'rh-js-methods'
 
 1 && rUtil.logGroup(
   'address',
+  RMock.mock('@region'),
+  RMock.mock('@region(3)'),
+  RMock.mock('@province'),
+  RMock.mock('@city'),
+  RMock.mock('@county'),
+  RMock.mock('@address'),
+)
+
+0 && rUtil.logGroup(
+  'address',
   // RMock.mock('@ip'),
   // RMock.mock('@ip()'),
   // RMock.mock('@ip6()'),
