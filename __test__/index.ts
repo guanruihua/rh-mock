@@ -2,15 +2,18 @@
 import RMock from '../src/index'
 import { rUtil } from 'rh-js-methods'
 
+
 // console.log(RH)
 
 1 && rUtil.logGroup(
   'address',
-  RMock.mock('@ip'),
-  RMock.mock('@ip()'),
-  RMock.mock('@domain'),
-  RMock.mock('@domain()'),
-  RMock.mock('@email()'),
+  // RMock.mock('@ip'),
+  // RMock.mock('@ip()'),
+  // RMock.mock('@ip6()'),
+  RMock.mock('@url()'),
+  // RMock.mock('@domain'),
+  // RMock.mock('@domain()'),
+  // RMock.mock('@email()'),
 
 )
 

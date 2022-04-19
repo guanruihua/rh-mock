@@ -1,4 +1,3 @@
-// import { stringToString } from './type'
 import { Template } from 'type';
 import Handler from './handler'
 import Random from './random'
