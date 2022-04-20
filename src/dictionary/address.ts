@@ -13,10 +13,6 @@ export const REGION = ['东北', '华北', '华东', '华中', '华南', '西南
  * 海外: 99
  */
 
-// export const PROVINCE: string[] = []
-// export const CITY: string[] = []
-// export const COUNTY:string[] = []
-
 function tree(list: any[]) {
 	let mapped = {}
 	for (let i = 0, item; i < list.length; i++) {
@@ -53,11 +49,11 @@ export const DICT_FIXED = (function () {
 			? undefined : id.slice(4, 6) == '00'
 				? (id.slice(0, 2) + '0000') :
 				id.slice(0, 4) + '00'
-		if (pid === undefined && DICT[id]) {
+		// if (pid === undefined && DICT[id]) {
 			// PROVINCE.push(DICT[id])
 			
-			console.log(DICT[id], id)
-		}
+			// console.log(DICT[id], id)
+		// }
 		// if (DICT[id] && id.slice(2, 6) !== '0000' && id.slice(4, 6) === '00') {
 		// 	CITY.push(DICT[id])
 		// }
