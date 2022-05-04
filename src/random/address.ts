@@ -14,58 +14,50 @@ function letters(start: number, end: number): string {
 	return result
 }
 
-function showAddress(obj: any, depth: number = 3, ignoreDepth: number = 0): string {
-	let result = '';
-	if (!depth) {
-		return result;
-	}
 
-	if (obj.name && depth && depth < ignoreDepth) {
-		result = ' ' + obj.name
+function selectRegion(_id: string) {
+	const _index = Number((Number(_id.slice(0, 2)) / 10).toFixed()) - 1
+	if (isNaN(_index) || _index < 0 || _index > REGION.length) {
+		return region()
 	}
-
-	if (obj.children) {
-		result += ' ' + showAddress(rArray.arraySelectOne(obj.children), --depth, ignoreDepth) || ''
-	}
-
-	if (typeof obj === 'string') {
-		return obj
-	}
-
-	return result
+	return REGION[_index] || region()
 }
 
 
-export function region(flag: string = '1'): string {
-	if (flag === '1' || flag === '2') return rArray.arraySelectOne(REGION) || ''
-	if (flag === '3') {
-		return showAddress(rArray.arraySelectOne(REGION) || {})
-	}
-	return rArray.arraySelectOne(REGION) || ''
+export function region(): string {
+	return address('RR')
 }
 
-// 1: 本身; 2: 当前地址以及父级; 3: 当前地址以及子级; RRPPCCccaa: 地址格式
 export function province(flag: string = '1'): string {
-	if (flag === '1') return rArray.arraySelectOne(DICT_FIXED)?.name || ''
-	if (flag === '2') return showAddress(rArray.arraySelectOne(DICT_FIXED) || {}, 1, 4)
-	if (flag === '3') return showAddress(rArray.arraySelectOne(DICT_FIXED) || {}, 3, 4)
-	return ''
+	return address('PP')
 }
 
 export function city(flag: string = '1'): string {
-	if (flag === '1') return showAddress(rArray.arraySelectOne(DICT_FIXED) || {}, 2, 2)
-	if (flag === '2') return showAddress(rArray.arraySelectOne(DICT_FIXED) || {}, 2, 4)
-	if (flag === '3') return showAddress(rArray.arraySelectOne(DICT_FIXED) || {}, 2, 3)
-	return ''
+	return address('CC')
 }
 
-export function county(flag: string = '1'): string {
-	return rArray.arraySelectOne(DICT_FIXED)?.name || ''
+export function district(flag: string = '1'): string {
+	return address('DD')
 }
 
+// PPCCDDAA: 地址格式
 // XX街道XX路XX号XX栋XX单元XX号
-export function address(flag: string = '1'): string {
-	return `${randomNum(512).toString(16)}街道${randomNum(512).toString(16)}路${randomNum()}号${randomNum()}栋${randomNum()}单元${randomNum()}号`
+export function address(tmp: string = 'PPCCDDAA'): string {
+	if(!isNaN(Number(tmp))){
+		tmp = 'RRPPCCDDAA'
+	}
+	const _province = rArray.arraySelectOne(DICT_FIXED)
+	const _region = selectRegion(_province.id)
+	const _city = rArray.arraySelectOne(_province.children || [])
+	const _district = rArray.arraySelectOne(_city.children || [])
+	const _address = `${randomNum(512).toString(16)}街道${randomNum(512).toString(16)}路${randomNum()}号${randomNum()}栋${randomNum()}单元${randomNum()}号`
+
+	tmp = tmp
+		.replace('RR', _region)
+		.replace('PP', _province.name).replace('CC', _city.name)
+		.replace('DD', _district.name).replace('AA', _address)
+
+	return tmp
 }
 
 
