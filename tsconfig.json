@@ -1,33 +1,21 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    // "module": "commonjs",
-    "sourceMap": true,
+    "lib": ["DOM", "ESNext"],
     "outDir": "./dist",
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "sourceMap": true,
     "removeComments": true,
     "noImplicitAny": false,
     "strictNullChecks": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
-    "declaration": false,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    // "strict": true,
-    "baseUrl": "./src",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "paths": {
-      "@random/*": [
-        "random/*"
-      ]
-    }
+    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
-  "include": [
-    "./src/**/*",
-    "*.ts"
-  ],
-  "exclude": [
-    "./src/test",
-    "*.spec.ts"
-  ]
+  "include": ["./src/**/*", "**/*.ts"],
+  "exclude": ["./src/test", "**/*/__test__/", "**/*/md.ts", "**/*/*.md", "*.spec.ts"]
 }

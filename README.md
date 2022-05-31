@@ -3,7 +3,8 @@
 > 参考 mock 库
 > 拓展 一些 自己常用 而 mock 没有的使用方法
 > 拓展运算符 `&`, `&&`
-> 本仓库主要是学习使用
+> 只做数据生成, 减低代码耦合
+>
 
 ## 使用
 
@@ -12,9 +13,9 @@ npm install rh-mock
 ```
 
 ```js
-import RMock from 'rh-mock'
+import { Mock } from 'rh-mock'
 
-RMock.mock({"name|3":"@name"})
+Mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
 ```
 
@@ -23,7 +24,7 @@ RMock.mock({"name|3":"@name"})
 > `name|2-222`
 
 ```js
-RMock.mock({"name|3-5":"@name"})
+Mock({"name|3-5":"@name"})
 => { name: [ 'Jeffrey', 'Jose', 'Gary', 'William' ] }
 ```
 
@@ -32,7 +33,7 @@ RMock.mock({"name|3-5":"@name"})
 > `name|12`
 
 ```js
-RMock.mock({"name|3":"@name"})
+Mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
 ```
 
@@ -190,6 +191,7 @@ RMock.mock({"name|3":"@name"})
 ```
 
 ## 更新日志
-
+>
+> - 1.0.0 正式版 方法名改成 Mock, 只做数据生成
 > - 0.1.5 修复dist.json文件缺失问题
 > - 升级内部使用工具包 "rh-js-methods": "^0.0.13" => "1.0.3"

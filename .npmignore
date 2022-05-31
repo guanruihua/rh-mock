@@ -1,9 +1,10 @@
-lib/
 test/
 __test__/
 src/
 push.bat
-README.md
 .gitignore
 jest.config.ts
 tsconfig.json
+node_modules
+.*
+*.config.ts

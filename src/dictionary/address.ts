@@ -14,38 +14,38 @@ export const REGION = ['东北', '华北', '华东', '华中', '华南', '西南
  */
 
 function tree(list: any[]) {
-	let mapped = {}
+	const mapped = {}
 	for (let i = 0, item; i < list.length; i++) {
 		item = list[i]
-		if (!item || !item.id) continue
+		if (!item || !item.id) {continue}
 		mapped[item.id] = item
 	}
 
-	let result: any[] = []
+	const result: any[] = []
 	for (let ii = 0, item; ii < list.length; ii++) {
 		item = list[ii]
 
-		if (!item) continue
+		if (!item) {continue}
 		if (item.pid == undefined && item.parentId == undefined) {
 			result.push(item)
 			continue
 		}
-		let parent = mapped[item.pid] || mapped[item.parentId]
-		if (!parent) continue
-		if (!parent.children) parent.children = []
+		const parent = mapped[item.pid] || mapped[item.parentId]
+		if (!parent) {continue}
+		if (!parent.children) {parent.children = []}
 		parent.children.push(item)
 	}
 	return result
 }
 
 export const DICT_FIXED = (function () {
-	let fixed: {
+	const fixed: {
 		id: string,
 		pid: string | undefined,
 		name: string
 	}[] = []
-	for (let id in DICT) {
-		let pid = id.slice(2, 6) === '0000'
+	for (const id in DICT) {
+		const pid = id.slice(2, 6) === '0000'
 			? undefined : id.slice(4, 6) == '00'
 				? (id.slice(0, 2) + '0000') :
 				id.slice(0, 4) + '00'

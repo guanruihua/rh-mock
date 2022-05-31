@@ -1,0 +1,10 @@
+export declare function region(): string;
+export declare function province(flag?: string): string;
+export declare function city(flag?: string): string;
+export declare function district(flag?: string): string;
+export declare function address(tmp?: string): string;
+export declare function ip(): string;
+export declare function domain(x?: number, y?: number): string;
+export declare function ip6(): string;
+export declare function email(): string;
+export declare function url(protocols?: string): string;

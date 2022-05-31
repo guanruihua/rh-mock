@@ -1,51 +1,51 @@
 // import RMock from '../dist/index'
-import RMock from '../src/index'
+import { Mock as RMock } from '../src/index'
 import { rUtil } from 'rh-js-methods'
 
 
 // console.log(RH)
 
-console.log(RMock.mock({
-  "value|10-23":{
+console.log(RMock({
+  "value|2-4":{
     name: "@name"
   }
 }));
 
 0 && rUtil.logGroup(
   'address',
-  RMock.mock('@region'),
-  RMock.mock('@province'),
-  RMock.mock('@city'),
-  RMock.mock('@district'),
-  RMock.mock('@address'),
-  RMock.mock('@address(RR PP CC DD AA)'),
+  RMock('@region'),
+  RMock('@province'),
+  RMock('@city'),
+  RMock('@district'),
+  RMock('@address'),
+  RMock('@address(RR PP CC DD AA)'),
 )
 
 0 && rUtil.logGroup(
   'address',
-  // RMock.mock('@ip'),
-  // RMock.mock('@ip()'),
-  // RMock.mock('@ip6()'),
-  RMock.mock('@url()'),
-  // RMock.mock('@domain'),
-  // RMock.mock('@domain()'),
-  // RMock.mock('@email()'),
+  // RMock('@ip'),
+  // RMock('@ip()'),
+  // RMock('@ip6()'),
+  RMock('@url()'),
+  // RMock('@domain'),
+  // RMock('@domain()'),
+  // RMock('@email()'),
 
 )
 
 0 &&
   rUtil.logGroup(
     'test',
-    // RMock.mock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }), '\n',
-    // RMock.mock({ 'nameX|1': ['a', 'b', 'c'] }), '\n',// 多选一
-    // RMock.mock({ 'nameX': '@name', 'nameX2': '@name' }), '\n',
-    // RMock.mock({ 'nameOne|1-100': 10 }), '\n',
-    // RMock.mock({ 'nameOne|1': ['a', 'b', 'c', 'd'] }), '\n',
-    // RMock.mock({ 'nameOne|2': ['a', '@name', 'c', 'd'] }), '\n',
-    // RMock.mock({ 'nameX|2-4': '@name' }), '\n',
-    // RMock.mock({ 'nameX|0-2': '@name' }), '\n',
-    // RMock.mock({ 'nameX|2-4': '@name' }), '\n',
-    0 && RMock.mock({
+    // RMock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }), '\n',
+    // RMock({ 'nameX|1': ['a', 'b', 'c'] }), '\n',// 多选一
+    // RMock({ 'nameX': '@name', 'nameX2': '@name' }), '\n',
+    // RMock({ 'nameOne|1-100': 10 }), '\n',
+    // RMock({ 'nameOne|1': ['a', 'b', 'c', 'd'] }), '\n',
+    // RMock({ 'nameOne|2': ['a', '@name', 'c', 'd'] }), '\n',
+    // RMock({ 'nameX|2-4': '@name' }), '\n',
+    // RMock({ 'nameX|0-2': '@name' }), '\n',
+    // RMock({ 'nameX|2-4': '@name' }), '\n',
+    0 && RMock({
       'list|2-4': {
         a: '@name',
         uid: '@uuid',
@@ -68,38 +68,38 @@ console.log(RMock.mock({
       // }
     }),
     '\n'
-    // RMock.mock('@name'),
+    // RMock('@name'),
   )
 0 &&
   rUtil.logGroup(
     'test',
-    // RMock.mock({"name&&a":"@name"}),
-    // RMock.mock({ 'name|3': '@name' }),
-    RMock.mock({ 'name|3-5': '@name' }), // 有问题
-    RMock.mock({ 'num|1-9': 1 }),
-    RMock.mock({ 'num|12': 1 }),
-    // RMock.mock('@char'),
-    RMock.mock('@name'),
-    // RMock.mock('@cname'),
-    // RMock.mock('@string'),
-    // RMock.mock('@title'),
-    // RMock.mock('@title(1,30)')
+    // RMock({"name&&a":"@name"}),
+    // RMock({ 'name|3': '@name' }),
+    RMock({ 'name|3-5': '@name' }), // 有问题
+    RMock({ 'num|1-9': 1 }),
+    RMock({ 'num|12': 1 }),
+    // RMock('@char'),
+    RMock('@name'),
+    // RMock('@cname'),
+    // RMock('@string'),
+    // RMock('@title'),
+    // RMock('@title(1,30)')
   )
 0 && rUtil.logGroup(
   'test-item',
-  RMock.mock('@name'),
-  RMock.mock('@cname'),
-  RMock.mock('@first'),
-  RMock.mock('@last'),
-  RMock.mock('@cfirst'),
-  RMock.mock('@clast'),
-  RMock.mock('@name'),
-  RMock.mock('@char'),
-  RMock.mock('@string'),
-  RMock.mock('@title'),
-  RMock.mock('@title(1,30)'),
-  RMock.mock('@id'),
-  RMock.mock('@uuid'),
-  RMock.mock('@boolean'),
-  RMock.mock('@cword')
+  RMock('@name'),
+  RMock('@cname'),
+  RMock('@first'),
+  RMock('@last'),
+  RMock('@cfirst'),
+  RMock('@clast'),
+  RMock('@name'),
+  RMock('@char'),
+  RMock('@string'),
+  RMock('@title'),
+  RMock('@title(1,30)'),
+  RMock('@id'),
+  RMock('@uuid'),
+  RMock('@boolean'),
+  RMock('@cword')
 )

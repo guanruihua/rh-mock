@@ -1,11 +1,12 @@
 import { rArray, rNumber, rUtil } from 'rh-js-methods'
 import Constant from './constant'
 import Util from './util'
-import Random from './random'
+import * as Random from './random'
 import { Template, BaseSupportObject, BaseSupportArray } from './type'
 const { RE_KEY, RE_Object_KEY, RE_Object_str_KEY } = Constant
 
 function generateString(template: string): Template {
+
   if (template[0] === '@') {
     // eslint-disable-line no-useless-escape
     const [, controlIndex, ...params] = template.split(/@|\(|\)|,/) || []
@@ -91,6 +92,7 @@ function generateObject(template: BaseSupportObject): BaseSupportObject {
 }
 
 function generate(template: Template): any {
+
   try {
     switch (Util.type(template)) {
       case 'object':
@@ -107,9 +109,4 @@ function generate(template: Template): any {
   }
 }
 
-const Handler: { [key: string]: any } = {
-  // mock 入口, 主要负责
-  generate,
-}
-
-export default Handler
+export default generate
