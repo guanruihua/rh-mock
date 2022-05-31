@@ -1,4 +1,4 @@
-declare const Constant: {
+declare const _default: {
     GUID: number;
     RE_KEY: RegExp;
     RE_Object_KEY: RegExp;
@@ -9,4 +9,4 @@ declare const Constant: {
     CHARS: string;
     CHINESE: string;
 };
-export default Constant;
+export default _default;

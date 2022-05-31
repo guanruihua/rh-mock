@@ -1,4 +1,3 @@
-declare const Handler: {
-    [key: string]: any;
-};
-export default Handler;
+import { Template } from './type';
+declare function generate(template: Template): any;
+export default generate;
