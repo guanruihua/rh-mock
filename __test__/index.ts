@@ -5,7 +5,13 @@ import { rUtil } from 'rh-js-methods'
 
 // console.log(RH)
 
-1 && rUtil.logGroup(
+console.log(RMock.mock({
+  "value|10-23":{
+    name: "@name"
+  }
+}));
+
+0 && rUtil.logGroup(
   'address',
   RMock.mock('@region'),
   RMock.mock('@province'),

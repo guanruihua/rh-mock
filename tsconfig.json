@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
+    "target": "ESNext",
+    // "module": "commonjs",
     "sourceMap": true,
     "outDir": "./dist",
     "removeComments": true,
@@ -17,9 +17,18 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "paths": {
-      "@random/*": ["random/*"]
+      "@random/*": [
+        "random/*"
+      ]
     }
   },
-  "include": ["./src/**/*", "*.ts"],
-  "exclude": ["./src/test", "*.spec.ts"]
+  "include": [
+    "./src/**/*",
+    "*.ts",
+    "**/*.json"
+  ],
+  "exclude": [
+    "./src/test",
+    "*.spec.ts"
+  ]
 }

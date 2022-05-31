@@ -1,4 +1,4 @@
-import * as DICT from './dict.json'
+import DICT from './dict.json'
 
 export const REGION = ['东北', '华北', '华东', '华中', '华南', '西南', '西北','港澳台','海外']
 /**
