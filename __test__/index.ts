@@ -1,17 +1,35 @@
-// import RMock from '../dist/index'
 import { Mock as RMock } from '../src/index'
-import { rUtil } from 'rh-js-methods'
+import { logGroup } from 'rh-js-methods'
+// import {  } from 'rh-test'
 
 
-// console.log(RH)
+// console.log(RMock('@num|1,2'))
+// console.log(RMock('@num(10,20)'))
+// console.log(RMock('@num(-10,20)'))
+// console.log(RMock('@num(-10,20)'))
+// console.log(RMock('@num(-10,0)'))
+// console.log(RMock('@uuid(xxyxxxyyy)'))
+// console.log(RMock('@string(3,4)'))
+// console.log(RMock('@uuid(xxx)'))
+// console.log(RMock({ t: '@title(3,4)' }))
+// console.log(RMock('@image64'))
+// console.log(RMock('@image64(皮哥牛逼)'))
+// console.log(RMock('@image64(晓峰也牛逼,400x400,30)'))
+console.log(RMock('@image(晓峰也牛逼,400x400,30)'))
+// console.log(RMock('@image64(淋神牛逼,100,100)'))
+// console.log(RMock('@image(文字,200x200,123,456,png)'))
 
-console.log(RMock({
-  "value|2-4":{
+
+// console.log(RMock('@num|1.1,2.3'))
+// console.log(RMock('@num|1.1,2.3'))
+
+0 && console.log(RMock({
+  "value|2-4": {
     name: "@name"
   }
 }));
 
-0 && rUtil.logGroup(
+0 && logGroup(
   'address',
   RMock('@region'),
   RMock('@province'),
@@ -21,7 +39,7 @@ console.log(RMock({
   RMock('@address(RR PP CC DD AA)'),
 )
 
-0 && rUtil.logGroup(
+0 && logGroup(
   'address',
   // RMock('@ip'),
   // RMock('@ip()'),
@@ -34,7 +52,7 @@ console.log(RMock({
 )
 
 0 &&
-  rUtil.logGroup(
+  logGroup(
     'test',
     // RMock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }), '\n',
     // RMock({ 'nameX|1': ['a', 'b', 'c'] }), '\n',// 多选一
@@ -71,7 +89,7 @@ console.log(RMock({
     // RMock('@name'),
   )
 0 &&
-  rUtil.logGroup(
+  logGroup(
     'test',
     // RMock({"name&&a":"@name"}),
     // RMock({ 'name|3': '@name' }),
@@ -85,7 +103,7 @@ console.log(RMock({
     // RMock('@title'),
     // RMock('@title(1,30)')
   )
-0 && rUtil.logGroup(
+0 && logGroup(
   'test-item',
   RMock('@name'),
   RMock('@cname'),

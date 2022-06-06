@@ -7,3 +7,4 @@ test/
 lib/
 src/*/__test__
 __test__
+rollup.config.ts

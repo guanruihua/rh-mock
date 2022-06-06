@@ -1,18 +1,27 @@
-import { rArray, rNumber, rUtil } from 'rh-js-methods'
+import { isEmpty, random, select, selects, type } from 'rh-js-methods'
+import { Template, BaseSupportObject, BaseSupportArray } from './type'
 import Constant from './constant'
 import Util from './util'
 import * as Random from './random'
-import { Template, BaseSupportObject, BaseSupportArray } from './type'
 const { RE_KEY, RE_Object_KEY, RE_Object_str_KEY } = Constant
 
 function generateString(template: string): Template {
 
-  if (template[0] === '@') {
-    // eslint-disable-line no-useless-escape
-    const [, controlIndex, ...params] = template.split(/@|\(|\)|,/) || []
-    return Random[controlIndex](...params)
-  }
-  return template
+  if (template[0] !== '@') return template
+
+  // if (/^@[a-zA-Z]{1,}|[-.0-9]*,[-.0-9]*$/.test(template) && template.indexOf('(') < 0) {
+  //   // console.log(template)
+  //   // eslint-disable-line no-useless-escape
+  //   const [, controlPerIndex, ...params]: string[] = template.split(/@|\||,/) || []
+
+  //   return Random[controlPerIndex](...params)
+  // }
+
+  // eslint-disable-line no-useless-escape
+  const [, controlIndex, ...params]: string[] = template.split(/@|\(|\)|,/) || []
+
+  return Random[controlIndex](...params)
+
 }
 
 function generateObject(template: BaseSupportObject): BaseSupportObject {
@@ -25,25 +34,25 @@ function generateObject(template: BaseSupportObject): BaseSupportObject {
       const [name, min, max]: (string | undefined)[] = key.split(/\||\-/)
       //  多选一
       if (min === '1' && max === undefined) {
-        result[name] = rArray.arraySelectOne(template[key] as BaseSupportArray)
+        result[name] = select(template[key] as BaseSupportArray)
       }
       // 指定数量
-      if (!rUtil.isEmpty(min) && min !== '1' && max === undefined) {
+      if (!isEmpty(min) && min !== '1' && max === undefined) {
         const tmp_list: any[] = []
         let count = Number(min)
         while (count--) { tmp_list.push(Mock(template[key])) }
         result[name] = tmp_list
       }
       // 随机数
-      if (!rUtil.isEmpty(min) && !rUtil.isEmpty(max) && rUtil.type(template[key]) === 'Number') {
-        result[name] = rNumber.random(Number(min), Number(max))
+      if (!isEmpty(min) && !isEmpty(max) && type(template[key]) === 'Number') {
+        result[name] = random(Number(min), Number(max))
       }
       // 按照 generate 生成
-      if (!rUtil.isEmpty(min) && !rUtil.isEmpty(max)) {
+      if (!isEmpty(min) && !isEmpty(max)) {
         const tmp_list: any = []
         let tmp_max = Number(max)
         while (tmp_max--) { tmp_list.push(Mock(template[key])) }
-        const val: Template = rArray.arraySelectItems(tmp_list, Number(min), Number(max))
+        const val: Template = selects(tmp_list, Number(min), Number(max))
         result[name] = val || ''
       }
     } else if (RE_Object_KEY.test(key)) {
@@ -62,7 +71,7 @@ function generateObject(template: BaseSupportObject): BaseSupportObject {
         // eslint-disable-next-line no-useless-escape
         const [min, max, , tkey]: any = tkeys[0].split(/\-|\(|\)/)
         tkeys[0] = tkey
-        len = rNumber.random(Number(min), Number(max))
+        len = random(Number(min), Number(max))
       }
 
       if (len > 0) {

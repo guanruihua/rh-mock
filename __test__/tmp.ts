@@ -1,4 +1,36 @@
+/* eslint-disable*/
+// import { createCanvas } from 'canvas'
 
+// const IMAGE_MAX_WIDTH = 3000
+// const IMAGE_MAX_HEIGTH = 3000
+
+// export function image64(
+// 	text: string = '',
+// 	size: string = '100x100',
+// 	foreground = '000'
+// ) {
+// 	const [width = '100', height = '100'] = size.split(/x|X/)
+// 	const _width: number = Math.min(parseInt(width), IMAGE_MAX_WIDTH) || 200
+// 	const _height: number = Math.min(parseInt(height), IMAGE_MAX_HEIGTH) || 200
+
+// 	const canvas = createCanvas(_width, _height)
+// 	const ctx = canvas.getContext('2d')
+
+// 	ctx.fillStyle = `#${foreground}`
+// 	ctx.font = `${_width / 10}px Sans`
+
+// 	const _text = text || `${_width} x ${_height}`
+// 	const _text_w = ctx.measureText(_text).width
+// 	ctx.fillText(_text, (_width - _text_w) / 2, _height / 2)
+
+// 	return canvas.toDataURL()
+// }
+// ###### `@image64([text[,width[,height[,textColor]]]])`
+
+// - base64图片
+// - `text: string = ''` : 文字
+// - `size: string = '100x100'`: 图片大小
+// - `foreground = '000`: 文字颜色
 
 // // 生成长度为len的数字id
 // export function useNumberId(len: number): string {

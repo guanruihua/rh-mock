@@ -1,16 +1,16 @@
-import { rArray, rNumber } from 'rh-js-methods'
+import { random, select } from 'rh-js-methods'
 import Constant from '../constant'
 
 const { CHARS } = Constant
 
 export function char(): string {
-  return rArray.arraySelectOne(CHARS.split(''))
+  return select(CHARS.split(''))
 }
 
-export function string(): string {
+export function string(min = '0', max = '10'): string {
   let result: string = char()
-  let len: number = rNumber.random(1, 20, false)
-  while (len--) {result += char()}
+  let len: number = random(Number(min), Number(max), false)
+  while (--len) { result += char() }
   return result
 }
 
@@ -21,6 +21,7 @@ export function boolean(): boolean {
 
 // id
 export function id(): string {
+  // eslint-disable-next-line
   return Math.random().toString().slice(2)
 }
 
