@@ -35,9 +35,80 @@ Mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
 ```
 
+## `&`
+
+- 多个字段使用同一个生成规则
+
+### 给多个字段使用同一个生成规则
+
+> `{'name&key1,key2,key3':'@name'}`
+
+```js
+{name: { key1: 'Mark', key2: 'Jason', key3: 'Thomas' }`}
+```
+
+### 生成多组
+
+- `{'name&(2)key1,key2,key3': "@name"}`
+
+```js
+{
+  name: [
+    { key1: 'Mark', key2: 'Donald', key3: 'Michael' },
+    { key1: 'George', key2: 'Jose', key3: 'Edward' },
+  ]
+}
+```
+
+### 指定数量组
+
+- `{'name&(2-5)key1,key2,key3': "@name"}`
+
+```js
+{
+  name: [
+    { key1: 'Jason', key2: 'Kenneth', key3: 'Scott' },
+    { key1: 'Mark', key2: 'Donald', key3: 'Michael' },
+    { key1: 'George', key2: 'Jose', key3: 'Edward' },
+  ]
+}
+```
+
+## `&&`
+
+- 转为字符串
+
+### 转化字符串
+
+- `{'name&&key1,key2,key3':'@name'}`
+
+```js
+{
+  name: '{"key1":"Joseph","key2":"Michael","key3":"Jose"}'
+}
+```
+
+### 指定数量组
+
+- `{'name&&(2)key1,key2,key3': "@name"}`
+
+```js
+{
+  name: '[{"key1":"Anthony","key2":"Eric","key3":"Edward"},{"key1":"Thomas","key2":"Eric","key3":"Edward"}]'
+}
+```
+
+### 生成多组
+
+- `{'name&&(2-5)key1,key2,key3': "@name"}`
+
+```js
+{ name: '{"key1":"James","key2":"Jeffrey","key3":"William"}' }
+```
+
 ## 操作符
 
-## 基础数据类型
+### 基础数据类型
 
 |     操作符     |        描述        |     结果     |
 | :------------: | :----------------: | :----------: |
@@ -49,9 +120,7 @@ Mock({"name|3":"@name"})
 |  `@num(5,10)`  |    指定范围数字    |      5       |
 |    `@float`    |       浮点型       |    13.14     |
 
-### 复杂数据类型
-
-##### 名称
+### 名称
 
 |  操作符   |     描述     |      结果 |
 | :-------: | :----------: | --------: |
@@ -62,7 +131,7 @@ Mock({"name|3":"@name"})
 | `@cfirst` |    中文姓    |      `关` |
 | `@clast`  |    中文名    |    `瑞毕` |
 
-##### 文本
+### 文本
 
 > 待开发 自然段
 
@@ -72,7 +141,7 @@ Mock({"name|3":"@name"})
 | `@title(3,30)` |  标题  | `传年圆美石所技道只式器知老引明说外海专性油复队运构科文重` |
 |    `@cword`    | 中文字 |                            `厂`                            |
 
-##### 居住地址
+### 居住地址
 
 | 操作                      | 描述           | 结果                                                  |
 | :------------------------ | :------------- | :---------------------------------------------------- |
@@ -91,7 +160,7 @@ Mock({"name|3":"@name"})
 - `DD`: 地区
 - `AA`: 地址
 
-##### 其他地址
+### 其他地址
 
 | 操作        | 描述    | 结果                                    |
 | :---------- | :------ | :-------------------------------------- |
@@ -103,14 +172,14 @@ Mock({"name|3":"@name"})
 | `@email`    | 邮箱    | cxydhhsfxqzki@nipik.ftnyl               |
 | `@email()`  | 邮箱    | cxydhhsfxqzki@nipik.ftnyl               |
 
-##### 颜色
+### 颜色
 
 - 待开发
 - color, hex, rgb, rgba, hsl
 
-##### 图片
+### 图片
 
-###### `@image([text[,size[,background[,foreground[,format]]]]])`
+#### `@image([text[,size[,background[,foreground[,format]]]]])`
 
 - 图片链接
 - `text = ''`: 文字
@@ -119,7 +188,7 @@ Mock({"name|3":"@name"})
 - `foreground = 'fff'`: 文字颜色
 - `format: '' | 'png' | 'gif' | 'jpg' = ''` : 图片格式
 
-##### 时间
+#### 时间
 
 |操作符|描述|结果|
 |:----|:----|:----|
@@ -142,79 +211,9 @@ Mock({"name|3":"@name"})
 |                    `@uuid`                    | uuid  | `326be748-57bd-c2d0-84f4-99bb488a4292` |
 | `@uuid(xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx)` | uuid  | `326be748-57bd-c2d0-84f4-99bb488a4292` |
 
-### `&`
-
-- 多个字段使用同一个生成规则
-
-#### 给多个字段使用同一个生成规则
-
-> `{'name&key1,key2,key3':'@name'}`
-
-```js
-{name: { key1: 'Mark', key2: 'Jason', key3: 'Thomas' }`}
-```
-
-#### 生成多组
-
-- `{'name&(2)key1,key2,key3': "@name"}`
-
-```js
-{
-  name: [
-    { key1: 'Mark', key2: 'Donald', key3: 'Michael' },
-    { key1: 'George', key2: 'Jose', key3: 'Edward' },
-  ]
-}
-```
-
-#### 指定数量组
-
-- `{'name&(2-5)key1,key2,key3': "@name"}`
-
-```js
-{
-  name: [
-    { key1: 'Jason', key2: 'Kenneth', key3: 'Scott' },
-    { key1: 'Mark', key2: 'Donald', key3: 'Michael' },
-    { key1: 'George', key2: 'Jose', key3: 'Edward' },
-  ]
-}
-```
-
-### `&&`
-
-- 转为字符串
-
-#### 转化字符串
-
-- `{'name&&key1,key2,key3':'@name'}`
-
-```js
-{
-  name: '{"key1":"Joseph","key2":"Michael","key3":"Jose"}'
-}
-```
-
-#### 生成多组
-
-- `{'name&&(2)key1,key2,key3': "@name"}`
-
-```js
-{
-  name: '[{"key1":"Anthony","key2":"Eric","key3":"Edward"},{"key1":"Thomas","key2":"Eric","key3":"Edward"}]'
-}
-```
-
-#### 指定数量组
-
-- `{'name&&(2-5)key1,key2,key3': "@name"}`
-
-```js
-{ name: '{"key1":"James","key2":"Jeffrey","key3":"William"}' }
-```
-
 ## 更新日志
 
+- 1.2.0 添加时间的生成
 - 1.1.0 添加图片的生成
 - 1.0.0 正式版 方法名改成 Mock, 只做数据生成
 - 0.1.5 修复dist.json文件缺失问题
