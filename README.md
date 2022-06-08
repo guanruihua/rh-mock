@@ -19,7 +19,7 @@ Mock({"name|3":"@name"})
 
 ## 范围
 
-> `name|2-222`
+- `name|2-222`
 
 ```js
 Mock({"name|3-5":"@name"})
@@ -82,13 +82,14 @@ Mock({"name|3":"@name"})
 | `district`                | 区域           | 洮北区                                                |
 | `address`                 | 地址           | 安徽省宣城市宣州区1d8街道6e路69号99栋36单元78号       |
 | `address(RR PP CC DD AA)` | 地址(指定格式) | 东北 山西省 吕梁市 汾阳市 1c街道e路83号17栋92单元61号 |
-> 补充:
->
-> - `RR`: 地区  
-> - `PP`: 省
-> - `CC`: 城市
-> - `DD`: 地区
-> - `AA`: 地址
+
+ 补充:
+
+- `RR`: 地区  
+- `PP`: 省
+- `CC`: 城市
+- `DD`: 地区
+- `AA`: 地址
 
 ##### 其他地址
 
@@ -104,8 +105,8 @@ Mock({"name|3":"@name"})
 
 ##### 颜色
 
-> 待开发
-> color, hex, rgb, rgba, hsl
+- 待开发
+- color, hex, rgb, rgba, hsl
 
 ##### 图片
 
@@ -120,7 +121,18 @@ Mock({"name|3":"@name"})
 
 ##### 时间
 
-> 待开发
+|操作符|描述|结果|
+|:----|:----|:----|
+|`@now`| 现在 | `2022-06-08 16:58:16`
+|`@now(YYYY-MM-DD HH:mm:ss)`| 现在 | `2022-06-08 16:58:16`
+|`@date`| 随机日期 | `2021-09-27`
+|`@date(YYYY-MM-DD)`| 随机日期 | `2022-03-28`
+|`@date(YYYY-MM-DD HH:mm:ss)`| 随机日期 | `2020-03-24 22:58:16`
+|`@time`| 随机时间 | `22:58:16`
+|`@time(HH:mm:ss)`| 随机时间 | `04:58:16`
+|`@time(YYYY-MM-DD HH:mm:ss)`| 随机时间 | `2020-06-27 22:58:16`
+|`@timeStamp`| 随机时间戳 | `1604703768135`
+|`@nowTimeStamp`| 当前时间时间戳 | `1604703768135`
 
 ### 特殊
 
@@ -132,7 +144,7 @@ Mock({"name|3":"@name"})
 
 ### `&`
 
-> 多个字段使用同一个生成规则
+- 多个字段使用同一个生成规则
 
 #### 给多个字段使用同一个生成规则
 
@@ -144,7 +156,7 @@ Mock({"name|3":"@name"})
 
 #### 生成多组
 
-> `{'name&(2)key1,key2,key3': "@name"}`
+- `{'name&(2)key1,key2,key3': "@name"}`
 
 ```js
 {
@@ -157,21 +169,25 @@ Mock({"name|3":"@name"})
 
 #### 指定数量组
 
-> `{'name&(2-5)key1,key2,key3': "@name"}`
+- `{'name&(2-5)key1,key2,key3': "@name"}`
 
 ```js
 {
-  name: [{ key1: 'Jason', key2: 'Kenneth', key3: 'Scott' }]
+  name: [
+    { key1: 'Jason', key2: 'Kenneth', key3: 'Scott' },
+    { key1: 'Mark', key2: 'Donald', key3: 'Michael' },
+    { key1: 'George', key2: 'Jose', key3: 'Edward' },
+  ]
 }
 ```
 
 ### `&&`
 
-> 转为字符串
+- 转为字符串
 
 #### 转化字符串
 
-> `{'name&&key1,key2,key3':'@name'}`
+- `{'name&&key1,key2,key3':'@name'}`
 
 ```js
 {
@@ -181,7 +197,7 @@ Mock({"name|3":"@name"})
 
 #### 生成多组
 
-> `{'name&&(2)key1,key2,key3': "@name"}`
+- `{'name&&(2)key1,key2,key3': "@name"}`
 
 ```js
 {
@@ -191,7 +207,7 @@ Mock({"name|3":"@name"})
 
 #### 指定数量组
 
-> `{'name&&(2-5)key1,key2,key3': "@name"}`
+- `{'name&&(2-5)key1,key2,key3': "@name"}`
 
 ```js
 { name: '{"key1":"James","key2":"Jeffrey","key3":"William"}' }
@@ -199,7 +215,7 @@ Mock({"name|3":"@name"})
 
 ## 更新日志
 
-> - 1.1.0 添加图片的生成
-> - 1.0.0 正式版 方法名改成 Mock, 只做数据生成
-> - 0.1.5 修复dist.json文件缺失问题
-> - 升级内部使用工具包 "rh-js-methods": "^0.0.13" => "1.0.3"
+- 1.1.0 添加图片的生成
+- 1.0.0 正式版 方法名改成 Mock, 只做数据生成
+- 0.1.5 修复dist.json文件缺失问题
+- 升级内部使用工具包 "rh-js-methods": "^0.0.13" => "1.0.3"

@@ -1,7 +1,8 @@
 import { Mock as RMock } from '../src/index'
-import { logGroup } from 'rh-js-methods'
+import { logGroup, once } from 'rh-js-methods'
 // import {  } from 'rh-test'
 
+const logs = once(logGroup)
 
 // console.log(RMock('@num|1,2'))
 // console.log(RMock('@num(10,20)'))
@@ -15,9 +16,22 @@ import { logGroup } from 'rh-js-methods'
 // console.log(RMock('@image64'))
 // console.log(RMock('@image64(皮哥牛逼)'))
 // console.log(RMock('@image64(晓峰也牛逼,400x400,30)'))
-console.log(RMock('@image(晓峰也牛逼,400x400,30)'))
+// console.log(RMock('@image(晓峰也牛逼,400x400,30)'))
 // console.log(RMock('@image64(淋神牛逼,100,100)'))
 // console.log(RMock('@image(文字,200x200,123,456,png)'))
+logs(
+  'Time',
+  RMock('@timeStamp'),
+  RMock('@nowTimeStamp'),
+  RMock('@now'),
+  RMock('@now(YYYY-MM-DD HH:mm:ss)'),
+  RMock('@date'),
+  RMock('@date(YYYY-MM-DD)'),
+  RMock('@date(YYYY-MM-DD HH:mm:ss)'),
+  RMock('@time'),
+  RMock('@time(HH:mm:ss)'),
+  RMock('@time(YYYY-MM-DD HH:mm:ss)'),
+)
 
 
 // console.log(RMock('@num|1.1,2.3'))
