@@ -28,7 +28,7 @@ Mock({"name|3-5":"@name"})
 
 ## 指定数量
 
-> `name|12`
+- `name|12`
 
 ```js
 Mock({"name|3":"@name"})
@@ -41,7 +41,7 @@ Mock({"name|3":"@name"})
 
 ### 给多个字段使用同一个生成规则
 
-> `{'name&key1,key2,key3':'@name'}`
+- `{'name&key1,key2,key3':'@name'}`
 
 ```js
 {name: { key1: 'Mark', key2: 'Jason', key3: 'Thomas' }`}
