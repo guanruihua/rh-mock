@@ -9,14 +9,6 @@ function generateString(template: string): Template {
 
   if (template[0] !== '@') return template
 
-  // if (/^@[a-zA-Z]{1,}|[-.0-9]*,[-.0-9]*$/.test(template) && template.indexOf('(') < 0) {
-  //   // console.log(template)
-  //   // eslint-disable-line no-useless-escape
-  //   const [, controlPerIndex, ...params]: string[] = template.split(/@|\||,/) || []
-
-  //   return Random[controlPerIndex](...params)
-  // }
-
   // eslint-disable-line no-useless-escape
   const [, controlIndex, ...params]: string[] = template.split(/@|\(|\)|,/) || []
 
@@ -100,7 +92,7 @@ function generateObject(template: BaseSupportObject): BaseSupportObject {
   return result
 }
 
-export function Mock(template: Template): Template {
+export function Mock(template: Template): any {
 
   try {
     switch (Util.type(template)) {
