@@ -4,7 +4,7 @@ import Constant from '../constant'
 const { CHARS } = Constant
 
 export function char(): string {
-  return select(CHARS.split(''))
+  return select(CHARS.split('')) || ''
 }
 
 export function string(min = '0', max = '10'): string {

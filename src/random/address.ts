@@ -3,8 +3,6 @@ import { random, select, selects } from 'rh-js-methods'
 import Constant from '../constant'
 import { DICT_FIXED, REGION } from '../dictionary'
 
-const randomNum = (max = 99) => random(1, max, false)
-
 function letters(start: number, end: number): string {
 	const codeFn = () => String.fromCharCode(random(97, 122, false))
 	let len = random(start, end, false)
@@ -15,7 +13,6 @@ function letters(start: number, end: number): string {
 	return result
 }
 
-
 function selectRegion(_id: string) {
 	// eslint-disable-next-line
 	const _index = Number((Number(_id.slice(0, 2)) / 10).toFixed()) - 1
@@ -24,7 +21,6 @@ function selectRegion(_id: string) {
 	}
 	return REGION[_index] || region()
 }
-
 
 export function region(): string {
 	return address('RR')
@@ -44,23 +40,19 @@ export function district(flag: string = '1'): string {
 	return address('DD')
 }
 
-// PPCCDDAA: 地址格式
-// XX街道XX路XX号XX栋XX单元XX号
+// PPCCDD: 地址格式
 // eslint-disable-next-line
-export function address(tmp: string = 'PPCCDDAA'): string {
-	if(!isNaN(Number(tmp))){
-		tmp = 'RRPPCCDDAA'
-	}
-	const _province = select(DICT_FIXED)
-	const _region = selectRegion(_province.id)
-	const _city = select(_province.children || [])
-	const _district = select(_city.children || [])
-	const _address = `${randomNum(512).toString(16)}街道${randomNum(512).toString(16)}路${randomNum()}号${randomNum()}栋${randomNum()}单元${randomNum()}号`
+export function address(tmp: string = 'PPCCDD'): string {
+	const _province = select(DICT_FIXED) || {}
+	const _region = selectRegion(_province.id) || ''
+	const _city: Record<string, any> = select(_province.children || []) || {}
+	const _district: Record<string, any> = select(_city.children || []) || {}
 
 	tmp = tmp
 		.replace('RR', _region)
-		.replace('PP', _province.name).replace('CC', _city.name)
-		.replace('DD', _district.name).replace('AA', _address)
+		.replace('PP', _province.name || '')
+		.replace('CC', _city.name || '')
+		.replace('DD', _district.name || '')
 
 	return tmp
 }

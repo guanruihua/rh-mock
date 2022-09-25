@@ -1,6 +1,6 @@
 {
   "name": "rh-mock",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "description": "Mock 数据",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -41,7 +41,7 @@
     "lint-staged": "^12.0.3",
     "node-notifier": "^8.0.2",
     "prettier": "^2.4.1",
-    "rh-js-methods": "2.0.4",
+    "rh-js-methods": "^2.1.11",
     "rh-test": "0.0.3",
     "rimraf": "^3.0.2",
     "rollup": "^2.66.1",

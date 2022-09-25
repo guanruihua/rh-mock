@@ -1,9 +1,45 @@
-import { Mock as RMock } from '../src/index'
+import { Mock as RMock } from '../src'
 import { logGroup, once } from 'rh-js-methods'
 // import {  } from 'rh-test'
 
 const logs = once(logGroup)
 
+logGroup(
+  'address',
+  RMock('@region'),
+  RMock('@province'),
+  RMock('@city'),
+  RMock('@district'),
+  RMock('@address'),
+  RMock('@address(RR PP CC DD)'),
+)
+logGroup(
+  'address',
+  RMock('@region'),
+  RMock('@province'),
+  RMock('@city'),
+  RMock('@district'),
+  RMock('@address'),
+  RMock('@address(RR PP CC DD)'),
+)
+logGroup(
+  'address',
+  RMock('@region'),
+  RMock('@province'),
+  RMock('@city'),
+  RMock('@district'),
+  RMock('@address'),
+  RMock('@address(RR PP CC DD)'),
+)
+logGroup(
+  'address',
+  RMock('@region'),
+  RMock('@province'),
+  RMock('@city'),
+  RMock('@district'),
+  RMock('@address'),
+  RMock('@address(RR PP CC DD)'),
+)
 // console.log(RMock('@num|1,2'))
 // console.log(RMock('@num(10,20)'))
 // console.log(RMock('@num(-10,20)'))
@@ -19,7 +55,7 @@ const logs = once(logGroup)
 // console.log(RMock('@image(晓峰也牛逼,400x400,30)'))
 // console.log(RMock('@image64(淋神牛逼,100,100)'))
 // console.log(RMock('@image(文字,200x200,123,456,png)'))
-logs(
+0&&logs(
   'Time',
   RMock('@timeStamp'),
   RMock('@nowTimeStamp'),
@@ -43,15 +79,7 @@ logs(
   }
 }));
 
-0 && logGroup(
-  'address',
-  RMock('@region'),
-  RMock('@province'),
-  RMock('@city'),
-  RMock('@district'),
-  RMock('@address'),
-  RMock('@address(RR PP CC DD AA)'),
-)
+
 
 0 && logGroup(
   'address',

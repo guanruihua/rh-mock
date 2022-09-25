@@ -5,6 +5,7 @@ public
 .cz-config.js
 test/
 lib/
+typings/
 src/*/__test__
 __test__
 rollup.config.ts

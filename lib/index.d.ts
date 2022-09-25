@@ -1,2 +1,2 @@
 import { Template } from './type';
-export declare function Mock(template: Template): Template;
+export declare function Mock(template: Template): any;

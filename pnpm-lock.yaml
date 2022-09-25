@@ -16,7 +16,7 @@ specifiers:
   lint-staged: ^12.0.3
   node-notifier: ^8.0.2
   prettier: ^2.4.1
-  rh-js-methods: 2.0.4
+  rh-js-methods: ^2.1.11
   rh-test: 0.0.3
   rimraf: ^3.0.2
   rollup: ^2.66.1
@@ -46,7 +46,7 @@ devDependencies:
   lint-staged: 12.4.3
   node-notifier: 8.0.2
   prettier: 2.6.2
-  rh-js-methods: 2.0.4
+  rh-js-methods: 2.1.11
   rh-test: 0.0.3_xtbxiq25qi77c7vcxvon6kjgwi
   rimraf: 3.0.2
   rollup: 2.75.3
@@ -3291,10 +3291,10 @@ packages:
     resolution: {integrity: sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA==}
     dev: true
 
-  /rh-js-methods/2.0.4:
-    resolution: {integrity: sha512-rZtLr9wZvKfsX+MUW31wy7X0ErmtoJYKimjnVuZdXzEm6X5uesHui6vj39yC2StUiDi1WTcdxqX83ih+sIw8PA==}
+  /rh-js-methods/2.1.11:
+    resolution: {integrity: sha512-aGLwBAlTggOrpM6M4PbE3247M7iYIxYlHnRdieQV2IOKw+dnLXQOdarZquMT9MhsPXC/2F48UFI0m7LDd4iL+Q==}
+    engines: {node: '>=16'}
     dependencies:
-      reflect-metadata: 0.1.13
       rh-ts-methods: 0.0.2
     dev: true
 
