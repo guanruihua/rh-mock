@@ -1,3 +1,3 @@
-import { Random, RandomList, Mock } from './generate';
-export { Random, RandomList, Mock };
+import { Random, RandomList, Mock, initDictionary, dictionary } from './generate';
+export { Random, RandomList, Mock, initDictionary, dictionary };
 export default Mock;
