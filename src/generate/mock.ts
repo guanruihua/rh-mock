@@ -84,38 +84,47 @@ export function generateObject(template: BaseSupportObject): BaseSupportObject {
 }
 
 function RandomList(min: number, max: number) {
-  const __random__ = random(min, max, 0)
-  return function (template: Template) {
-    const list = []
-    for (let i = 0; i < __random__; i++) {
-      list.push(Mock(template))
-    }
-    return list
-  }
+	const __random__ = random(min, max, 0)
+	return function (template: Template) {
+		const list = []
+		for (let i = 0; i < __random__; i++) {
+			list.push(Mock(template))
+		}
+		return list
+	}
 }
 
+let dictionary: Record<string, any> = {}
+
+function initDictionary(row: Record<string, any>) {
+	dictionary = { ...dictionary, ...row }
+}
 
 function Mock(template: Template): any {
 
-  try {
-    switch (type(template)) {
-      case 'Object':
-        return generateObject(template as BaseSupportObject)
-      case 'String':
-        return generateString(template as string)
-      case 'Array':
-        return (template as Template[]).map((item: Template): Template => Mock(item))
-      case 'Function':
-        return (template as (...args: any[]) => any)(template)
-      default:
-        return template
-    }
-  } catch (error) {
-    return template
-  }
+
+	try {
+		switch (type(template)) {
+			case 'Object':
+				return generateObject(template as BaseSupportObject)
+			case 'String':
+				if (dictionary[template as string]) {
+					return dictionary[template as string]
+				}
+				return generateString(template as string)
+			case 'Array':
+				return (template as Template[]).map((item: Template): Template => Mock(item))
+			case 'Function':
+				return (template as (...args: any[]) => any)(template)
+			default:
+				return template
+		}
+	} catch (error) {
+		return template
+	}
 }
 
 
-export { Random, RandomList, Mock }
+export { Random, RandomList, Mock, initDictionary, dictionary }
 
 export default Mock

@@ -1,7 +1,12 @@
-import { Mock } from '../src'
+import { Mock, initDictionary } from '../src'
 import { logGroup } from 'rh-js-methods'
 
+initDictionary({
+  '@aaa': 'ababab'
+})
+
 logGroup('test',
+  Mock('@aaa'),
   Mock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }),
   Mock({ 'nameX|1': ['a', 'b', 'c'] }),
   Mock({ 'nameX': '@name', 'nameX2': '@name' }),
@@ -17,7 +22,6 @@ logGroup('test',
       uid: '@uuid',
       id: '@id',
       fn: function (tmp) {
-        console.log(this,tmp)
         return '123'
       },
     },
