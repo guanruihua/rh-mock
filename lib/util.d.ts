@@ -1,4 +1,2 @@
-declare const Util: {
-    [key: string]: any;
-};
+declare const Util: Record<string, any>;
 export default Util;

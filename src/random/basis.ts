@@ -9,7 +9,7 @@ export function char(): string {
 
 export function string(min = '0', max = '10'): string {
   let result: string = char()
-  let len: number = random(Number(min), Number(max), false)
+  let len: number = random(Number(min), Number(max), 0)
   while (--len) { result += char() }
   return result
 }

@@ -2,7 +2,6 @@
 
 - 随机数据生成
 - 拓展运算符 `&`, `&&`
-- 只做数据生成, 减低耦合, 没有请求拦截
 
 ## 使用
 
@@ -17,39 +16,29 @@ Mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
 ```
 
-## 范围
-
-- `name|2-222`
+## 范围 `name|2-222`
 
 ```js
 Mock({"name|3-5":"@name"})
 => { name: [ 'Jeffrey', 'Jose', 'Gary', 'William' ] }
 ```
 
-## 指定数量
-
-- `name|12`
+## 指定数量 `name|12`
 
 ```js
 Mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
 ```
 
-## `&`
+## `&` 多用一
 
-- 多个字段使用同一个生成规则
-
-### 给多个字段使用同一个生成规则
-
-- `{'name&key1,key2,key3':'@name'}`
+### 基础使用 `{'name&key1,key2,key3':'@name'}`
 
 ```js
 {name: { key1: 'Mark', key2: 'Jason', key3: 'Thomas' }`}
 ```
 
-### 生成多组
-
-- `{'name&(2)key1,key2,key3': "@name"}`
+### 指定数量 `{'name&(2)key1,key2,key3': "@name"}`
 
 ```js
 {
@@ -60,9 +49,7 @@ Mock({"name|3":"@name"})
 }
 ```
 
-### 指定数量组
-
-- `{'name&(2-5)key1,key2,key3': "@name"}`
+### 数量范围组 `{'name&(2-5)key1,key2,key3': "@name"}`
 
 ```js
 {
@@ -74,13 +61,9 @@ Mock({"name|3":"@name"})
 }
 ```
 
-## `&&`
+## `&&` 多用一 并转子串
 
-- 转为字符串
-
-### 转化字符串
-
-- `{'name&&key1,key2,key3':'@name'}`
+### 基础 `{'name&&key1,key2,key3':'@name'}`
 
 ```js
 {
@@ -88,9 +71,7 @@ Mock({"name|3":"@name"})
 }
 ```
 
-### 指定数量组
-
-- `{'name&&(2)key1,key2,key3': "@name"}`
+### 指定数量 `{'name&&(2)key1,key2,key3': "@name"}`
 
 ```js
 {
@@ -98,9 +79,7 @@ Mock({"name|3":"@name"})
 }
 ```
 
-### 生成多组
-
-- `{'name&&(2-5)key1,key2,key3': "@name"}`
+### 数量范围 `{'name&&(2-5)key1,key2,key3': "@name"}`
 
 ```js
 { name: '{"key1":"James","key2":"Jeffrey","key3":"William"}' }
@@ -133,13 +112,15 @@ Mock({"name|3":"@name"})
 
 ### 文本
 
-> 待开发 自然段
-
 |     操作符     |  描述  |                            结果                            |
 | :------------: | :----: | :--------------------------------------------------------: |
 |    `@title`    |  标题  |                         `土好保观`                         |
 | `@title(3,30)` |  标题  | `传年圆美石所技道只式器知老引明说外海专性油复队运构科文重` |
 |    `@cword`    | 中文字 |                            `厂`                            |
+| `@sentence(2)`| 句子 | `Enim ad aute eiusmod enim occaecat. Aliqua anim dolore eiusmod officia commodo amet nostrud.`
+| `@sent(2)`| 句子 | `Enim ad aute eiusmod enim occaecat. Aliqua anim dolore eiusmod officia commodo amet nostrud.`
+| `@paragraph(2)`| 自然段 | <div style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;Laboris ex ad duis reprehenderit deserunt enim. In laboris Lorem est pariatur eu officia incididunt ipsum sint adipisicing nisi ullamco ut do. Quis ullamco tempor exercitation duis elit duis duis adipisicing. Occaecat pariatur reprehenderit consectetur amet non cillum velit eu cupidatat ad. Reprehenderit excepteur sint commodo officia adipisicing id labore veniam amet irure. Cillum nisi voluptate exercitation minim in ut aliquip laborum duis. Lorem veniam amet magna labore reprehenderit culpa adipisicing eiusmod ipsum exercitation.</br>&nbsp;&nbsp;&nbsp;&nbsp;Eiusmod minim aliqua dolor nostrud et. Mollit ad ex laborum ea deserunt incididunt pariatur. Ipsum exercitation Lorem consectetur dolor incididunt excepteur labore proident cupidatat dolore consequat dolor.</div> |
+| `@para(2)`| 自然段 | <div style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;Laboris ex ad duis reprehenderit deserunt enim. In laboris Lorem est pariatur eu officia incididunt ipsum sint adipisicing nisi ullamco ut do. Quis ullamco tempor exercitation duis elit duis duis adipisicing. Occaecat pariatur reprehenderit consectetur amet non cillum velit eu cupidatat ad. Reprehenderit excepteur sint commodo officia adipisicing id labore veniam amet irure. Cillum nisi voluptate exercitation minim in ut aliquip laborum duis. Lorem veniam amet magna labore reprehenderit culpa adipisicing eiusmod ipsum exercitation.</br>&nbsp;&nbsp;&nbsp;&nbsp;Eiusmod minim aliqua dolor nostrud et. Mollit ad ex laborum ea deserunt incididunt pariatur. Ipsum exercitation Lorem consectetur dolor incididunt excepteur labore proident cupidatat dolore consequat dolor.</div>
 
 ### 居住地址
 
@@ -164,12 +145,9 @@ Mock({"name|3":"@name"})
 | 操作        | 描述    | 结果                                    |
 | :---------- | :------ | :-------------------------------------- |
 | `@ip`       | ip      | 242.86.47.174                           |
-| `@ip()`     | ip      | 136.205.48.82                           |
 | `@ip6()`    | ipv6    | e60b:3d50:be5c:ea37:3005:8a35:846e:1aeb |
 | `@domain`   | web地址 | opubztw.xxq                             |
-| `@domain()` | web地址 | npint.tjx                               |
 | `@email`    | 邮箱    | cxydhhsfxqzki@nipik.ftnyl               |
-| `@email()`  | 邮箱    | cxydhhsfxqzki@nipik.ftnyl               |
 
 ### 颜色
 
@@ -209,11 +187,3 @@ Mock({"name|3":"@name"})
 |                     `@id`                     |  id   |           `3191230364936506`           |
 |                    `@uuid`                    | uuid  | `326be748-57bd-c2d0-84f4-99bb488a4292` |
 | `@uuid(xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx)` | uuid  | `326be748-57bd-c2d0-84f4-99bb488a4292` |
-
-## 更新日志
-
-- 1.2.0 添加时间的生成
-- 1.1.0 添加图片的生成
-- 1.0.0 正式版 方法名改成 Mock, 只做数据生成
-- 0.1.5 修复dist.json文件缺失问题
-- 升级内部使用工具包 "rh-js-methods": "^0.0.13" => "1.0.3"

@@ -1,2 +1,3 @@
-import { Template } from './type';
-export declare function Mock(template: Template): any;
+import { Random, RandomList, Mock } from './generate';
+export { Random, RandomList, Mock };
+export default Mock;

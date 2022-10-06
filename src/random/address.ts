@@ -4,8 +4,8 @@ import Constant from '../constant'
 import { DICT_FIXED, REGION } from '../dictionary'
 
 function letters(start: number, end: number): string {
-	const codeFn = () => String.fromCharCode(random(97, 122, false))
-	let len = random(start, end, false)
+	const codeFn = () => String.fromCharCode(random(97, 122))
+	let len = random(start, end)
 	let result = ''
 	while (len--) {
 		result += codeFn()
@@ -60,7 +60,7 @@ export function address(tmp: string = 'PPCCDD'): string {
 
 
 export function ip(): string {
-	const ipItemFn = () => random(1, 254, false)
+	const ipItemFn = () => random(1, 254)
 	return `${ipItemFn()}.${ipItemFn()}.${ipItemFn()}.${ipItemFn()}`
 }
 
@@ -78,7 +78,7 @@ export function domain(x: number = 7, y: number = 3): string {
 
 
 export function ip6(): string {
-	const ipItemFn = () => random(1, 65535, false).toString(16)
+	const ipItemFn = () => random(1, 65535).toString(16)
 	let result = `${ipItemFn()}`
 	let i = 7;
 	while (i--) {

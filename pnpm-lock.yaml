@@ -14,9 +14,10 @@ specifiers:
   eslint: ^8.7.0
   eslint-plugin-prettier: ^4.0.0
   lint-staged: ^12.0.3
+  lorem-ipsum: ^2.0.8
   node-notifier: ^8.0.2
   prettier: ^2.4.1
-  rh-js-methods: ^2.1.11
+  rh-js-methods: ^2.1.12
   rh-test: 0.0.3
   rimraf: ^3.0.2
   rollup: ^2.66.1
@@ -44,9 +45,10 @@ devDependencies:
   eslint: 8.16.0
   eslint-plugin-prettier: 4.0.0_yzlwycfcjzj3trzruaflx2c53m
   lint-staged: 12.4.3
+  lorem-ipsum: 2.0.8
   node-notifier: 8.0.2
   prettier: 2.6.2
-  rh-js-methods: 2.1.11
+  rh-js-methods: 2.1.12
   rh-test: 0.0.3_xtbxiq25qi77c7vcxvon6kjgwi
   rimraf: 3.0.2
   rollup: 2.75.3
@@ -2862,6 +2864,14 @@ packages:
       wrap-ansi: 6.2.0
     dev: true
 
+  /lorem-ipsum/2.0.8:
+    resolution: {integrity: sha512-5RIwHuCb979RASgCJH0VKERn9cQo/+NcAi2BMe9ddj+gp7hujl6BI+qdOG4nVsLDpwWEJwTVYXNKP6BGgbcoGA==}
+    engines: {node: '>= 8.x', npm: '>= 5.x'}
+    hasBin: true
+    dependencies:
+      commander: 9.3.0
+    dev: true
+
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
@@ -3291,8 +3301,8 @@ packages:
     resolution: {integrity: sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA==}
     dev: true
 
-  /rh-js-methods/2.1.11:
-    resolution: {integrity: sha512-aGLwBAlTggOrpM6M4PbE3247M7iYIxYlHnRdieQV2IOKw+dnLXQOdarZquMT9MhsPXC/2F48UFI0m7LDd4iL+Q==}
+  /rh-js-methods/2.1.12:
+    resolution: {integrity: sha512-lu9o77OqBfLAs3gCSrG7usZngYeWavBhBg7xtV2QPeYMj9pNrY5hcOlTtRibd9VQ/CgDJ3zf1Ukf1f0+WLQWsw==}
     engines: {node: '>=16'}
     dependencies:
       rh-ts-methods: 0.0.2

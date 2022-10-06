@@ -1,4 +1,4 @@
-const Util: { [key: string]: any } = {};
+const Util: Record<string, any> = {};
 
 // 用来判断是obj 类型 ( string, function, object )
 Util.type = function (obj: any): string {

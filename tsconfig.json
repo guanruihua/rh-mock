@@ -9,14 +9,14 @@
     "removeComments": true,
     "noImplicitAny": false,
     "resolveJsonModule": true,
-    "strictNullChecks": true,
-    "alwaysStrict": true,
+    "strictNullChecks": false,
+    "alwaysStrict": false,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "include": ["./src/**/*", "./typings/**/*"],
+  "include": ["./src/**/*", "*.d.ts"],
   "exclude": ["./src/test", "**/*/__test__/", "**/*/md.ts", "**/*/*.md", "*.spec.ts"]
 }

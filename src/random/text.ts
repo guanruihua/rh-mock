@@ -9,7 +9,7 @@ export function cword() {
 
 export function title(min = '3', max = '5'): string {
 	let result = '';
-	let len: number = random(Number(min), Number(max), false);
+	let len: number = random(Number(min), Number(max));
 	while (len--) {
 		result += cword();
 	}

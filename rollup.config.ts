@@ -22,13 +22,15 @@ const rollupConfig = {
     {
       file: path.join(paths.output, 'index.js'),
       format: 'cjs',
-      name: pkg.name
+      name: pkg.name,
+      exports: 'named'
     },
     // 输出 es 规范的代码
     {
       file: path.join(paths.output, 'index.esm.js'),
       format: 'es',
-      name: pkg.name
+      name: pkg.name,
+      exports: 'named'
     }
   ],
   // external: ['lodash'], // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
