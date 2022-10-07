@@ -2,10 +2,14 @@ import { Mock, initDictionary } from '../src'
 import { logGroup } from 'rh-js-methods'
 
 initDictionary({
-  '@aaa': 'ababab'
+  'aaa': 'ababab',
+  'bbb': function (a = '1', b = '2') {
+    return a + '---' + b
+  }
 })
 
 logGroup('test',
+  Mock('@bbb(123,456)'),
   Mock('@aaa'),
   Mock({ 'nameX|2': { a: 'a', 'b': 'b', c: 'c' } }),
   Mock({ 'nameX|1': ['a', 'b', 'c'] }),
@@ -32,4 +36,3 @@ logGroup('test',
     'name&&(2)key1,key2,key3': '@name',
   }),
 )
-

@@ -2,6 +2,7 @@
 
 - 随机数据生成
 - 拓展运算符 `&`, `&&`
+- 添加自定义规则
 
 ## 使用
 
@@ -83,6 +84,28 @@ Mock({"name|3":"@name"})
 
 ```js
 { name: '{"key1":"James","key2":"Jeffrey","key3":"William"}' }
+```
+
+## 自定义规则
+
+- 优先级最高, 会覆盖包原本规则
+
+```js
+import { Mock, initDictionary, dictionary } from '../src'
+
+// 可以查看已经设置的规则字典
+dictionary
+
+initDictionary({
+  'aaa': 'ababab',
+  'bbb': function (a = '1', b = '2') {
+    return a + '---' + b
+  }
+})
+
+Mock('@bbb(123,456)') // 123---456
+Mock('@aaa') // ababab
+
 ```
 
 ## 操作符

@@ -1,5 +1,5 @@
 import * as Random from '../random'
-import { generateString } from './gen'
+import { generateString, dictionary, initDictionary } from './gen'
 import { isEmpty, random, select, selects, type } from 'rh-js-methods'
 import { Template, BaseSupportObject, BaseSupportArray } from '../type'
 import Constant from '../constant'
@@ -94,12 +94,6 @@ function RandomList(min: number, max: number) {
 	}
 }
 
-let dictionary: Record<string, any> = {}
-
-function initDictionary(row: Record<string, any>) {
-	dictionary = { ...dictionary, ...row }
-}
-
 function Mock(template: Template): any {
 
 
@@ -108,8 +102,16 @@ function Mock(template: Template): any {
 			case 'Object':
 				return generateObject(template as BaseSupportObject)
 			case 'String':
-				if (dictionary[template as string]) {
-					return dictionary[template as string]
+				// eslint-disable-next-line no-case-declarations
+				const [, controlIndex, ...params]: string[] = (template as string).split(/@|\(|\)|,/) || []
+				// if (dictionary[template as string]) {
+				// 	return dictionary[template as string]
+				// }
+				if (dictionary[controlIndex as string]) {
+					if (type(dictionary[controlIndex as string]) === 'Function') {
+						return dictionary[controlIndex as string](...params)
+					}
+					return dictionary[controlIndex as string]
 				}
 				return generateString(template as string)
 			case 'Array':
