@@ -6,7 +6,6 @@ import Constant from '../constant'
 
 const { RE_KEY, RE_Object_KEY, RE_Object_str_KEY } = Constant
 
-
 export function generateObject(template: BaseSupportObject): BaseSupportObject {
 	const result: BaseSupportObject = {}
 
@@ -96,7 +95,6 @@ function RandomList(min: number, max: number) {
 
 function Mock(template: Template): any {
 
-
 	try {
 		switch (type(template)) {
 			case 'Object':
@@ -104,14 +102,11 @@ function Mock(template: Template): any {
 			case 'String':
 				// eslint-disable-next-line no-case-declarations
 				const [, controlIndex, ...params]: string[] = (template as string).split(/@|\(|\)|,/) || []
-				// if (dictionary[template as string]) {
-				// 	return dictionary[template as string]
-				// }
-				if (dictionary[controlIndex as string]) {
-					if (type(dictionary[controlIndex as string]) === 'Function') {
-						return dictionary[controlIndex as string](...params)
+				if (dictionary.has(controlIndex)) {
+					if (type(dictionary.get(controlIndex)) === 'Function') {
+						return dictionary.get(controlIndex).bind(this)(...params)
 					}
-					return dictionary[controlIndex as string]
+					return dictionary.get(controlIndex)
 				}
 				return generateString(template as string)
 			case 'Array':

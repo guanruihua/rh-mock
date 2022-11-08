@@ -10,7 +10,6 @@ logGroup(
   // RMock('@domain'),
   // RMock('@domain()'),
   // RMock('@email()'),
-
 )
 
 logGroup(

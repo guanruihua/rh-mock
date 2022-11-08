@@ -1,11 +1,11 @@
 import { Template } from '../type'
 import * as Random from '../random'
 
-export const dictionary: Record<string, any> = {}
+export const dictionary = new Map()
 
 export function initDictionary(row: Record<string, any>) {
-	for(const key in row){
-		dictionary[key] = row[key]
+	for (const key in row) {
+		dictionary.set(key, row[key])
 	}
 }
 
