@@ -3,6 +3,10 @@
 // import './num'
 // import './sentence'
 // import './paragraph'
-import './test'
+// import './test'
+// import './test2'
 // import './base'
 // import './RandomList'
+// import './reg'
+
+import './newRuleTest'
