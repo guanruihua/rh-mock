@@ -9,4 +9,8 @@
 // import './RandomList'
 // import './reg'
 
-import './newRuleTest'
+// import './newRuleTest'
+// import './md'
+
+// import './count.1.test'
+import './count.number.test'

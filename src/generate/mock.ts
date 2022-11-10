@@ -10,13 +10,14 @@ export function Mock(template: Template) {
 	try {
 		switch (type(template)) {
 			case 'Object': return MockObject.bind(this)(template)
-			case 'String': return MockString(template)
+			case 'String': return MockString.bind(this)(template)
 			case 'Array': return MockArray.bind(this)(template)
 			case 'Function': return MockFunction.bind(this)(template)
 			default:
 				return template
 		}
 	} catch (error) {
+		console.error(error)
 		return template
 	}
 }
