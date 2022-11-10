@@ -9,7 +9,7 @@ export interface KeyType extends Record<string, any> {
 	dmax?: number
 	count?: number
 	/**
-	 * +1
+	 * 单数字: +number
 	 */
 	random?: boolean
 	multKey?: string[]
