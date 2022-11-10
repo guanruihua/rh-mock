@@ -1,5 +1,6 @@
 // 当前包支持的基础数据类型
 export type BaseSupportType = string | number | boolean | undefined | null | never | unknown
+// export type BaseSupportType = string | number | boolean | undefined | null
 export type BaseSupportArray = (BaseSupportType | BaseSupportObject)[]
 export type BaseSupportObject = {
 	[key: string]: BaseSupportType | BaseSupportArray | BaseSupportObject

@@ -2,9 +2,9 @@ import { Mock, initDictionary } from '../src'
 import { logGroup } from 'rh-js-methods'
 
 initDictionary({
-  'aaa': 'ababab',
+  'aaa': '__Dictionary__Value__',
   'bbb': function (a = '1', b = '2') {
-    return a + '---' + b
+    return '__Dictionary__Value__' + a + '---' + b
   }
 })
 
