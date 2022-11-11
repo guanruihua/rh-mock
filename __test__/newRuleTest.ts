@@ -71,6 +71,14 @@ import { logGroup } from 'rh-js-methods'
 	      return '123-' + JSON.stringify(this)
 	    },
 	  },
+	  // 'list2|3-6': [{
+	  //   a: '@name',
+	  //   uid: '@uuid',
+	  //   id: '@id',
+	  //   fn: function (tmp) {
+	  //     return '123-' + JSON.stringify(this)
+	  //   },
+	  // }],
 	  // 'li1&c,d,e': "@name",
 	  // 'li1-1&&c,d,e': "@name",
 	  // 'li2&(5)c,d,e': "@name",
