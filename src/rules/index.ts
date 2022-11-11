@@ -5,11 +5,12 @@ import { getRuleType } from './getRuleType'
 import { randomRule } from './randomRule'
 import { countRule } from './countRule'
 import { minAndMaxRule } from "./minAndMaxRule"
+import { dminAndDmaxRule } from './dminAndDmaxRule'
 
 export function MockRule(collect: Record<string, any>, key: string, template: Template): void {
 
 	const ruleType = getRuleType(key, template)
-	const { rule = '', valueType, name, min, max, multKey = [], count, handler } = ruleType
+	const { rule = '', valueType, name, min, max, dmin, multKey = [], count, handler } = ruleType
 
 	const Mock = _Mock.bind(collect)
 
@@ -28,8 +29,6 @@ export function MockRule(collect: Record<string, any>, key: string, template: Te
 		return
 	}
 
-
-
 	// 对 boolean 进行特殊处理
 	if (valueType === 'Boolean') {
 		collect[name] = random(min, max || ((min + 1) * 3) || 3) % 2 === 0
@@ -40,20 +39,30 @@ export function MockRule(collect: Record<string, any>, key: string, template: Te
 	// 使用 +number 格式
 	if (ruleType.random) {
 		randomRule(collect, ruleType, template)
+		if (handler) collect[name] = handler(collect[name])
 		return
 	}
 
+	if (min !== undefined) {
 
-	// 只设置min, 没有设置max
-	if (count !== undefined) {
-		countRule(collect, ruleType, template)
-		return
-	}
+		if (dmin !== undefined && valueType === 'Number') {
+			dminAndDmaxRule(collect, ruleType)
+			if (handler) collect[name] = handler(collect[name])
+			return
+		}
 
-	// 同时设置min 和 max
-	if (max !== undefined && min !== undefined) {
-		minAndMaxRule(collect, ruleType, template)
-		return
+		if (max !== undefined) {
+			minAndMaxRule(collect, ruleType, template)
+			if (handler) collect[name] = handler(collect[name])
+			return
+		}
+
+		if (count !== undefined) {
+			countRule(collect, ruleType, template)
+			if (handler) collect[name] = handler(collect[name])
+			return
+		}
+		
 	}
 
 	if (handler) collect[name] = handler(collect[name])

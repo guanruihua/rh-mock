@@ -20,27 +20,33 @@ export interface RuleType extends Record<string, any> {
 	_this: any
 }
 
+const toNumber = (val?: number | string) => {
+	if (val === undefined) return undefined
+	const result = Number(val)
+	if (isNaN(result)) {
+		return undefined;
+	}
+	return result
+}
 
 function getRule(rule: string): Record<string, any> {
 
 	let count = undefined
 	let random = false
-	const [min, max, dmin, dmax] = rule.split(/-|\./)
+	const [minAndMax, dminAndDmax] = rule.split('.')
+	const [min, max] = minAndMax && minAndMax.split('-') || [undefined, undefined]
+	const [dmin, dmax] = dminAndDmax && dminAndDmax.split('-') || [undefined, undefined]
 
 	if (max === undefined && min !== undefined) {
 		count = min
 	}
 
-	if (min && min.indexOf('+') === 0) {
-		random = true
+	if (Number(max) < Number(min)) {
+		count = min
 	}
 
-	const toNumber = (val: number | string) => {
-		const result = Number(val)
-		if (isNaN(result)) {
-			return undefined;
-		}
-		return result
+	if (min && min.indexOf('+') === 0) {
+		random = true
 	}
 
 	return {

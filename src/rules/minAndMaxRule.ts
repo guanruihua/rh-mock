@@ -4,22 +4,57 @@ import { Mock as _Mock } from '../generate'
 import { RuleType } from "./getRuleType"
 
 export function minAndMaxRule(collect: Record<string, any>, ruleType: RuleType, template: Template) {
-	const { valueType, name, min, max, handler, dmin, dmax } = ruleType
+	const { valueType, name, min, max } = ruleType
 
 	const Mock = _Mock.bind(collect)
 
 	if (Array.isArray(template)) {
-		collect[name] = selects(concat(...new Array(ceil(max / template.length)).fill(undefined).map(() => Mock(template))), min, max)
-	} else if (valueType === 'Number') {
-		collect[name] = random(min, max)
-		if (dmin !== undefined) {
-			collect[name] = Number(collect[name] + '.' + random(dmin, dmax || dmin * 3 || 3))
+
+		const len = ceil(max / template.length)
+
+		if (len === 1) {
+			collect[name] = [Mock(template[0])]
+			return
 		}
-	} else if (valueType === 'String') {
-		collect[name] = new Array(random(min, max)).fill('').map(() => Mock(template)).join('')
-	} else {
-		collect[name] = new Array(random(min, max)).fill('').map(() => Mock(template))
+
+		const newArray = concat(...new Array(len)
+			.fill(undefined)
+			.map(() => Mock(template)))
+
+		collect[name] = selects(
+			newArray,
+			min,
+			max < newArray.length ? max : newArray.length
+		)
+		return
 	}
-	if (handler) collect[name] = handler(collect[name])
+
+
+
+	if (valueType === 'Number') {
+
+		let newValue = random(min, max)
+
+		if (min === 0 && max === undefined) {
+			newValue = 0
+		}
+
+		if (min === 1 && max === undefined) {
+			newValue = collect[name]
+		}
+
+		collect[name] = newValue
+	
+		return
+	}
+
+	const randomNum = random(min, max)
+
+	if (valueType === 'String') {
+		collect[name] = new Array(ceil(randomNum)).fill('').map(() => Mock(template)).join('')
+		return
+	}
+
+	collect[name] = new Array(ceil(randomNum)).fill('').map(() => Mock(template))
 	return
 }
