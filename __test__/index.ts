@@ -8,10 +8,9 @@
 // import './base'
 // import './RandomList'
 // import './reg'
-
 // import './newRuleTest'
 // import './md'
 
 // import './count.1.test'
 // import './count.number.test'
-import './min.max.test'
+import './cases/min.max.test'

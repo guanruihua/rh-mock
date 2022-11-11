@@ -1,5 +1,5 @@
 import { logGroup } from 'rh-js-methods'
-import { cases } from './case'
+import { cases } from './caseHoc'
 
 // countRule
 

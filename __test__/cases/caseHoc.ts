@@ -1,4 +1,4 @@
-import { Mock } from '../src'
+import { Mock } from '../../src'
 
 // cases
 export const cases = (index: string) => Mock({

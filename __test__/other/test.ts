@@ -1,4 +1,4 @@
-import { Mock, initDictionary } from '../src'
+import { Mock, initDictionary } from '../../src'
 import { logGroup } from 'rh-js-methods'
 
 initDictionary({

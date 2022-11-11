@@ -1,4 +1,4 @@
-import { Mock } from '../src'
+import { Mock } from '../../src'
 import { logGroup } from 'rh-js-methods'
 
 logGroup('paragraph',
