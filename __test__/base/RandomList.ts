@@ -1,4 +1,4 @@
-import { RandomList } from '../src'
+import { RandomList } from '../../src'
 import { logGroup } from 'rh-js-methods'
 
 logGroup('test',

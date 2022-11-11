@@ -1,4 +1,4 @@
-import { Mock as RMock } from '../src'
+import { Mock as RMock } from '../../src'
 import { logGroup } from 'rh-js-methods'
 
 logGroup(
