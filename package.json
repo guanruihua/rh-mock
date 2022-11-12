@@ -27,9 +27,15 @@
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:guanruihua/rh-mock.git"
+  },
+  "bugs": "https://github.com/guanruihua/rh-mock/issues",
   "keywords": [
     "typescript",
     "javascript",
+    "npm",
     "mock"
   ],
   "author": "ruihuag",
