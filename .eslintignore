@@ -8,4 +8,5 @@ lib/
 typings/
 src/*/__test__
 __test__
-rollup.config.ts
+*.config.ts
+*.config.js
