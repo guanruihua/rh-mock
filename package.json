@@ -20,7 +20,7 @@
     "eslint": "eslint . --ext .ts",
     "eslint:fix": "eslint . --ext .ts --fix",
     "patch": "npm version patch -f",
-    "pub": "push.bat & rimraf ./dist & tsc & npm publish"
+    "pub": "npm publish"
   },
   "husky": {
     "hooks": {

@@ -66,7 +66,7 @@ Mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
 ```
 
-## `&` 多用一
+## 多用一
 
 ### 基础使用 `{'name||key1,key2,key3':'@name'}`
 
