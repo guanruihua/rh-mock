@@ -1,50 +1,50 @@
-import { Mock as RMock } from '../../src'
+import { Mock } from '../../src'
 import { logGroup } from 'rh-js-methods'
 
 logGroup(
   'address',
-  // RMock('@ip'),
-  // RMock('@ip()'),
-  // RMock('@ip6()'),
-  RMock('@url()'),
-  // RMock('@domain'),
-  // RMock('@domain()'),
-  // RMock('@email()'),
+  // Mock('@ip'),
+  // Mock('@ip()'),
+  // Mock('@ip6()'),
+  Mock('@url()'),
+  // Mock('@domain'),
+  // Mock('@domain()'),
+  // Mock('@email()'),
 )
 
 logGroup(
   'address',
-  RMock('@region'),
-  RMock('@province'),
-  RMock('@city'),
-  RMock('@district'),
-  RMock('@address'),
-  RMock('@address(RR PP CC DD)'),
+  Mock('@region'),
+  Mock('@province'),
+  Mock('@city'),
+  Mock('@district'),
+  Mock('@address'),
+  Mock('@address(RR PP CC DD)'),
 )
 logGroup(
   'address',
-  RMock('@region'),
-  RMock('@province'),
-  RMock('@city'),
-  RMock('@district'),
-  RMock('@address'),
-  RMock('@address(RR PP CC DD)'),
+  Mock('@region'),
+  Mock('@province'),
+  Mock('@city'),
+  Mock('@district'),
+  Mock('@address'),
+  Mock('@address(RR PP CC DD)'),
 )
 logGroup(
   'address',
-  RMock('@region'),
-  RMock('@province'),
-  RMock('@city'),
-  RMock('@district'),
-  RMock('@address'),
-  RMock('@address(RR PP CC DD)'),
+  Mock('@region'),
+  Mock('@province'),
+  Mock('@city'),
+  Mock('@district'),
+  Mock('@address'),
+  Mock('@address(RR PP CC DD)'),
 )
 logGroup(
   'address',
-  RMock('@region'),
-  RMock('@province'),
-  RMock('@city'),
-  RMock('@district'),
-  RMock('@address'),
-  RMock('@address(RR PP CC DD)'),
+  Mock('@region'),
+  Mock('@province'),
+  Mock('@city'),
+  Mock('@district'),
+  Mock('@address'),
+  Mock('@address(RR PP CC DD)'),
 )
