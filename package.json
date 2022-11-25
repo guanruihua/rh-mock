@@ -1,6 +1,6 @@
 {
   "name": "rh-mock",
-  "version": "2.0.0",
+  "version": "2.0.0-beta.0",
   "description": "Mock 数据",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -8,6 +8,8 @@
   "jsdelivr": "lib/",
   "types": "lib/index.d.ts",
   "scripts": {
+    "prepare": "husky install",
+    "commitlint": "commitlint -e",
     "build": "npx rollup -c --extend rollup.config.ts",
     "tsprod": "npm run build && npm run start",
     "dev": "ts-node-dev --respawn --transpile-only ./__test__/index.ts",
@@ -18,11 +20,22 @@
     "eslint": "eslint . --ext .ts",
     "eslint:fix": "eslint . --ext .ts --fix",
     "patch": "npm version patch -f",
-    "pub": "push.bat & rimraf ./dist & tsc & npm publish"
+    "pub": "npm publish"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:guanruihua/rh-mock.git"
+  },
+  "bugs": "https://github.com/guanruihua/rh-mock/issues",
   "keywords": [
     "typescript",
     "javascript",
+    "npm",
     "mock"
   ],
   "author": "ruihuag",
@@ -31,6 +44,7 @@
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
+    "@commitlint/config-conventional": "^17.2.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@types/bluebird": "^3.5.36",
@@ -38,8 +52,10 @@
     "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
+    "commitlint": "^17.2.0",
     "eslint": "^8.7.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.2",
     "lint-staged": "^12.0.3",
     "lorem-ipsum": "^2.0.8",
     "node-notifier": "^8.0.2",

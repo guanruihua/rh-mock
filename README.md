@@ -15,6 +15,19 @@ Mock("@name")
 => 'Ruihuag'
 ```
 
+## 说明
+
+```js
+Mock({
+  'name|rule|key1,key2,key3...|[DictionaryKey]':'@name'
+})
+```
+
+- `name`: 表示当前属性真正name
+- `rule` : 指定生成数量等规则
+- `key1,key2,key3...`: 表示当前属性为对象, 并且指定多个key, 且值为 `@name`
+- `@name`: 数据规则
+
 ## 规则使用
 
 ```js
@@ -53,15 +66,15 @@ Mock({"name|3":"@name"})
 =>  { name: [ 'Christopher', 'Daniel', 'Richard' ] }
 ```
 
-## `&` 多用一
+## 多用一
 
-### 基础使用 `{'name&key1,key2,key3':'@name'}`
+### 基础使用 `{'name||key1,key2,key3':'@name'}`
 
 ```js
 {name: { key1: 'Mark', key2: 'Jason', key3: 'Thomas' }`}
 ```
 
-### 指定数量 `{'name&(2)key1,key2,key3': "@name"}`
+### 指定数量 `{'name|2|key1,key2,key3': "@name"}`
 
 ```js
 {
@@ -72,7 +85,7 @@ Mock({"name|3":"@name"})
 }
 ```
 
-### 数量范围组 `{'name&(2-5)key1,key2,key3': "@name"}`
+### 数量范围组 `{'name|2-5|key1,key2,key3': "@name"}`
 
 ```js
 {
@@ -84,9 +97,9 @@ Mock({"name|3":"@name"})
 }
 ```
 
-## `&&` 多用一 并转子串
+## 多用一 并转子串
 
-### 基础 `{'name&&key1,key2,key3':'@name'}`
+### 基础 `{'name||key1,key2,key3|JsonString':'@name'}`
 
 ```js
 {
@@ -94,7 +107,7 @@ Mock({"name|3":"@name"})
 }
 ```
 
-### 指定数量 `{'name&&(2)key1,key2,key3': "@name"}`
+### 指定数量 `{'name|2|key1,key2,key3|JsonString': "@name"}`
 
 ```js
 {
@@ -102,7 +115,7 @@ Mock({"name|3":"@name"})
 }
 ```
 
-### 数量范围 `{'name&&(2-5)key1,key2,key3': "@name"}`
+### 数量范围 `{'name|2-5|key1,key2,key3|JsonString': "@name"}`
 
 ```js
 { name: '{"key1":"James","key2":"Jeffrey","key3":"William"}' }
